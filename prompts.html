@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Mastery for Teachers - Prompt Engineering</title>
+  <link rel="stylesheet" href="css/styles.css?v=3">
+</head>
+<body class="inner-page">
+  <div class="container">
+    <h1 class="page-title" style="margin-top:1.5rem;">PARTS Prompt Engineering</h1>
+    <div class="parts-intro" style="text-align:center; margin-bottom:2.5rem;">
+      <p>The <strong style="color:var(--color-accent)">PARTS</strong> framework helps you write structured, effective prompts for any AI tool.</p>
+      <p>Complete each sentence starter below, then copy your finished prompt.</p>
+    </div>
+
+    <div class="parts-container" style="max-width:800px; margin:0 auto;">
+
+      <!-- P - Persona -->
+      <div class="parts-section">
+        <div class="parts-section__header">
+          <div class="parts-section__letter">P</div>
+          <div>
+            <div class="parts-section__title">Persona</div>
+            <div class="parts-section__hint">Who should the AI act as?</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:flex-start; gap:0;">
+          <span style="color:var(--color-accent); font-weight:600; font-size:0.92rem; padding:0.8rem 0.5rem 0.8rem 1rem; background:var(--color-bg); border:1px solid rgba(255,255,255,0.1); border-right:none; border-radius:var(--radius-md) 0 0 var(--radius-md); white-space:nowrap;">Act as a</span>
+          <textarea id="parts-p" placeholder="e.g., experienced Key Stage 2 science teacher with 15 years of classroom experience who specialises in making complex topics accessible..." rows="2" style="border-radius:0 var(--radius-md) var(--radius-md) 0; width:100%;"></textarea>
+        </div>
+      </div>
+
+      <!-- A - Audience -->
+      <div class="parts-section">
+        <div class="parts-section__header">
+          <div class="parts-section__letter">A</div>
+          <div>
+            <div class="parts-section__title">Audience</div>
+            <div class="parts-section__hint">Who is the output for?</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:flex-start; gap:0;">
+          <span style="color:var(--color-accent); font-weight:600; font-size:0.92rem; padding:0.8rem 0.5rem 0.8rem 1rem; background:var(--color-bg); border:1px solid rgba(255,255,255,0.1); border-right:none; border-radius:var(--radius-md) 0 0 var(--radius-md); white-space:nowrap;">The audience is</span>
+          <textarea id="parts-a" placeholder="e.g., Year 4 students with mixed abilities, including 3 EAL learners and 2 students with SEND..." rows="2" style="border-radius:0 var(--radius-md) var(--radius-md) 0; width:100%;"></textarea>
+        </div>
+      </div>
+
+      <!-- R - Request -->
+      <div class="parts-section">
+        <div class="parts-section__header">
+          <div class="parts-section__letter">R</div>
+          <div>
+            <div class="parts-section__title">Request</div>
+            <div class="parts-section__hint">What exactly do you want the AI to produce?</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:flex-start; gap:0;">
+          <span style="color:var(--color-accent); font-weight:600; font-size:0.92rem; padding:0.8rem 0.5rem 0.8rem 1rem; background:var(--color-bg); border:1px solid rgba(255,255,255,0.1); border-right:none; border-radius:var(--radius-md) 0 0 var(--radius-md); white-space:nowrap;">I need you to</span>
+          <textarea id="parts-r" placeholder="e.g., create a detailed lesson plan covering the water cycle, including a starter activity, main task with differentiated activities, and a plenary..." rows="2" style="border-radius:0 var(--radius-md) var(--radius-md) 0; width:100%;"></textarea>
+        </div>
+      </div>
+
+      <!-- T - Tone -->
+      <div class="parts-section">
+        <div class="parts-section__header">
+          <div class="parts-section__letter">T</div>
+          <div>
+            <div class="parts-section__title">Tone</div>
+            <div class="parts-section__hint">What style or voice should it use?</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:flex-start; gap:0;">
+          <span style="color:var(--color-accent); font-weight:600; font-size:0.92rem; padding:0.8rem 0.5rem 0.8rem 1rem; background:var(--color-bg); border:1px solid rgba(255,255,255,0.1); border-right:none; border-radius:var(--radius-md) 0 0 var(--radius-md); white-space:nowrap;">Use a tone that is</span>
+          <textarea id="parts-t" placeholder="e.g., encouraging and clear, using age-appropriate language. Professional but warm..." rows="2" style="border-radius:0 var(--radius-md) var(--radius-md) 0; width:100%;"></textarea>
+        </div>
+      </div>
+
+      <!-- S - Specifics -->
+      <div class="parts-section">
+        <div class="parts-section__header">
+          <div class="parts-section__letter">S</div>
+          <div>
+            <div class="parts-section__title">Specifics</div>
+            <div class="parts-section__hint">Any constraints, format, length, or extra requirements?</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:flex-start; gap:0;">
+          <span style="color:var(--color-accent); font-weight:600; font-size:0.92rem; padding:0.8rem 0.5rem 0.8rem 1rem; background:var(--color-bg); border:1px solid rgba(255,255,255,0.1); border-right:none; border-radius:var(--radius-md) 0 0 var(--radius-md); white-space:nowrap;">Make sure you</span>
+          <textarea id="parts-s" placeholder="e.g., include 3 differentiated activities (emerging, expected, exceeding). Keep it to one page. Include success criteria and key vocabulary..." rows="2" style="border-radius:0 var(--radius-md) var(--radius-md) 0; width:100%;"></textarea>
+        </div>
+      </div>
+
+      <!-- Preview -->
+      <div class="parts-preview">
+        <div class="parts-preview__title">Your Generated Prompt</div>
+        <div class="parts-preview__text" id="partsPreview">
+          <span class="parts-preview__empty">Start typing above to see your prompt build in real-time...</span>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="parts-actions" style="display:flex; gap:1rem; margin-top:1rem; justify-content:center;">
+        <button class="btn-primary" id="partsCopy">Copy to Clipboard</button>
+        <button class="btn-secondary" id="partsClear">Clear All</button>
+      </div>
+      <p class="copy-feedback" id="copyFeedback" style="color:var(--color-success); font-size:0.85rem; margin-top:0.5rem; text-align:center; opacity:0; transition:opacity 150ms ease;">Copied to clipboard!</p>
+    </div>
+  </div>
+
+  <script src="js/storage.js?v=3"></script>
+  <script src="js/auth.js?v=3"></script>
+  <script src="js/app.js?v=3"></script>
+  <script>
+    // PARTS Framework - inline for reliability
+    (function() {
+      var starters = {
+        p: 'Act as a ',
+        a: 'The audience is ',
+        r: 'I need you to ',
+        t: 'Use a tone that is ',
+        s: 'Make sure you '
+      };
+
+      function getValues() {
+        return {
+          p: (document.getElementById('parts-p') || {}).value || '',
+          a: (document.getElementById('parts-a') || {}).value || '',
+          r: (document.getElementById('parts-r') || {}).value || '',
+          t: (document.getElementById('parts-t') || {}).value || '',
+          s: (document.getElementById('parts-s') || {}).value || ''
+        };
+      }
+
+      function buildPrompt(vals) {
+        var parts = [];
+        if (vals.p.trim()) parts.push(starters.p + vals.p.trim() + '.');
+        if (vals.a.trim()) parts.push(starters.a + vals.a.trim() + '.');
+        if (vals.r.trim()) parts.push(starters.r + vals.r.trim() + '.');
+        if (vals.t.trim()) parts.push(starters.t + vals.t.trim() + '.');
+        if (vals.s.trim()) parts.push(starters.s + vals.s.trim() + '.');
+        return parts.join('\n\n');
+      }
+
+      function updatePreview() {
+        var vals = getValues();
+        var prompt = buildPrompt(vals);
+        var preview = document.getElementById('partsPreview');
+        if (!prompt.trim()) {
+          preview.innerHTML = '<span class="parts-preview__empty">Start typing above to see your prompt build in real-time...</span>';
+        } else {
+          preview.textContent = prompt;
+        }
+      }
+
+      // Attach input listeners to all textareas
+      var textareas = document.querySelectorAll('.parts-section textarea');
+      for (var i = 0; i < textareas.length; i++) {
+        textareas[i].addEventListener('input', updatePreview);
+      }
+
+      // Copy to clipboard
+      document.getElementById('partsCopy').addEventListener('click', function() {
+        var vals = getValues();
+        var prompt = buildPrompt(vals);
+        if (!prompt.trim()) return;
+
+        navigator.clipboard.writeText(prompt).then(function() {
+          showFeedback();
+        }).catch(function() {
+          var ta = document.createElement('textarea');
+          ta.value = prompt;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          showFeedback();
+        });
+      });
+
+      function showFeedback() {
+        var fb = document.getElementById('copyFeedback');
+        fb.style.opacity = '1';
+        setTimeout(function() { fb.style.opacity = '0'; }, 2000);
+      }
+
+      // Clear all
+      document.getElementById('partsClear').addEventListener('click', function() {
+        var tas = document.querySelectorAll('.parts-section textarea');
+        for (var i = 0; i < tas.length; i++) { tas[i].value = ''; }
+        updatePreview();
+      });
+    })();
+  </script>
+</body>
+</html>

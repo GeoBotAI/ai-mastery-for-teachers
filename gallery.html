@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Mastery for Teachers - Gallery</title>
+  <link rel="stylesheet" href="css/styles.css?v=3">
+</head>
+<body class="inner-page">
+  <div class="container">
+    <h1 class="page-title" style="margin-top:1.5rem;">Teacher Showcase Gallery</h1>
+    <p class="page-subtitle">Share your reflections and creations to inspire others.</p>
+
+    <!-- Submission Form -->
+    <form class="gallery-form" id="galleryForm">
+      <h3 class="gallery-form__title">Share Your Work</h3>
+
+      <!-- Challenge & Activity Tag -->
+      <div style="display:flex; gap:1rem; margin-bottom:1rem; flex-wrap:wrap;">
+        <div style="flex:1; min-width:200px;">
+          <label style="font-size:0.8rem; color:var(--color-accent); font-weight:600; display:block; margin-bottom:0.3rem;">Tag a Challenge</label>
+          <select id="galleryChallenge" class="auth-input" style="padding:0.6rem 1rem;">
+            <option value="">-- Select Challenge --</option>
+            <option value="Challenge 1: The Chatbot">Challenge 1: The Chatbot</option>
+            <option value="Challenge 1.5: Trust, Safety &amp; Quality Gates">Challenge 1.5: Trust, Safety &amp; Quality Gates</option>
+            <option value="Challenge 2: The Image Creator">Challenge 2: The Image Creator</option>
+            <option value="Challenge 3: The DJ">Challenge 3: The DJ</option>
+            <option value="Challenge 4: The Filmmaker">Challenge 4: The Filmmaker</option>
+            <option value="Challenge 5: The Research Assistant">Challenge 5: The Research Assistant</option>
+            <option value="Challenge 6: The Knowledge Engine">Challenge 6: The Knowledge Engine</option>
+            <option value="Challenge 7: The Data Analyst">Challenge 7: The Data Analyst</option>
+            <option value="Challenge 8: The Tool Builder">Challenge 8: The Tool Builder</option>
+            <option value="Challenge 9: The AI-Human Workflow">Challenge 9: The AI-Human Workflow</option>
+          </select>
+        </div>
+        <div style="flex:1; min-width:200px;">
+          <label style="font-size:0.8rem; color:var(--color-accent); font-weight:600; display:block; margin-bottom:0.3rem;">Tag an Activity</label>
+          <select id="galleryActivity" class="auth-input" style="padding:0.6rem 1rem;">
+            <option value="">-- Select Activity --</option>
+          </select>
+        </div>
+      </div>
+
+      <textarea placeholder="Write a reflection, share an idea, or describe what you created and how it went..." rows="4"></textarea>
+      <div class="file-upload">
+        <label class="file-upload__label">
+          &#128247; Upload Image
+          <input type="file" accept="image/*">
+        </label>
+        <span class="file-upload__name">No file chosen</span>
+      </div>
+      <button type="submit" class="btn-primary">Share with Gallery</button>
+    </form>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+
+  <script src="js/storage.js?v=3"></script>
+  <script src="js/auth.js?v=3"></script>
+  <script src="js/app.js?v=3"></script>
+  <script src="js/gallery.js?v=3"></script>
+  <script>
+    // Activity options per challenge
+    var challengeActivities = {
+      "Challenge 1: The Chatbot": ["Activity 1: The Sandbox", "Activity 2: The Stress Test", "Activity 3: The Context Dump", "Activity 4: The Department Planner"],
+      "Challenge 1.5: Trust, Safety & Quality Gates": ["Activity 1: The Hallucination Hunt", "Activity 2: The Bias Check", "Activity 3: The Policy Script"],
+      "Challenge 2: The Image Creator": ["Activity 1: The Impossible Image", "Activity 2: The Misconception Check", "Activity 3: Visualising Complexity", "Activity 4: The Visual Bank"],
+      "Challenge 3: The DJ": ["Activity 1: The Revision EP", "Activity 2: Voice Snippets"],
+      "Challenge 4: The Filmmaker": ["Activity 1: The Lesson Hook", "Activity 2: The Mini-Documentary"],
+      "Challenge 5: The Research Assistant": ["Activity 1: The Deep Dive", "Activity 2: Source Triangulation", "Activity 3: The Resource Pack"],
+      "Challenge 6: The Knowledge Engine": ["Activity 1: The Department Brain", "Activity 2: The Audio Overview", "Activity 3: The Studio Pack"],
+      "Challenge 7: The Data Analyst": ["Activity 1: The Secure Sandbox", "Activity 2: The Grouping Challenge", "Activity 3: The Feedback Drafter"],
+      "Challenge 8: The Tool Builder": ["Activity 1: The Spec Writer", "Activity 2: The Flashcard App", "Activity 3: The Game Suite"],
+      "Challenge 9: The AI-Human Workflow": ["Activity 1: The Workflow Blueprint", "Activity 2: The Strategy Map", "Activity 3: The Quality Gate"]
+    };
+
+    var challengeSelect = document.getElementById('galleryChallenge');
+    var activitySelect = document.getElementById('galleryActivity');
+
+    challengeSelect.addEventListener('change', function() {
+      var acts = challengeActivities[this.value] || [];
+      activitySelect.innerHTML = '<option value="">-- Select Activity --</option>';
+      for (var i = 0; i < acts.length; i++) {
+        activitySelect.innerHTML += '<option value="' + acts[i] + '">' + acts[i] + '</option>';
+      }
+    });
+
+    Gallery.init('galleryForm', 'galleryGrid');
+  </script>
+</body>
+</html>

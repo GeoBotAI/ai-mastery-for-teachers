@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Mastery for Teachers - Login</title>
+  <link rel="stylesheet" href="css/styles.css?v=3">
+</head>
+<body class="inner-page">
+  <div class="auth-container fade-in">
+    <h1 class="page-title" style="font-size:1.6rem; margin-bottom:0.3rem;">AI Mastery for Teachers</h1>
+    <p class="auth-subtitle">Enter your email to begin your AI journey</p>
+    <form id="loginForm" class="auth-form">
+      <input type="email" id="emailInput" placeholder="your.email@school.edu" required autocomplete="email" class="auth-input">
+      <p id="errorMsg" style="color:#ff6b6b; font-size:0.85rem; display:none;"></p>
+      <button type="submit" class="btn-primary">Get Started</button>
+    </form>
+  </div>
+
+  <script src="js/storage.js?v=3"></script>
+  <script src="js/auth.js?v=3"></script>
+  <script>
+    // If already logged in, go to menu
+    if (StorageManager.isLoggedIn()) {
+      window.location.href = 'menu.html';
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var email = document.getElementById('emailInput').value.trim();
+      var errorMsg = document.getElementById('errorMsg');
+
+      if (!Auth.isValidEmail(email)) {
+        errorMsg.textContent = 'Please enter a valid email address.';
+        errorMsg.style.display = 'block';
+        return;
+      }
+
+      errorMsg.style.display = 'none';
+      Auth.registerEmail(email);
+      window.location.href = 'menu.html';
+    });
+  </script>
+</body>
+</html>

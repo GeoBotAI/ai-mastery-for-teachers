@@ -1,0 +1,19 @@
+# Local dev server
+server.py
+
+# Source documents (not part of the website)
+*.docx
+*.pdf
+Quiz.docx
+extracted_text.txt
+Safety Course Certificate.jpg
+1.jpg
+2.jpg
+nul
+
+# Claude config
+.claude/
+
+# OS files
+.DS_Store
+Thumbs.db

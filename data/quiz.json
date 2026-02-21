@@ -1,0 +1,375 @@
+{
+  "title": "AI Foundations Assessment",
+  "passPercent": 90,
+  "passScore": 27,
+  "totalQuestions": 30,
+  "dfELink": "https://www.gov.uk/government/collections/using-ai-in-education-settings-support-materials",
+  "sections": [
+    {
+      "id": "section_1",
+      "title": "Part 1: Understanding AI and System Limitations",
+      "questions": [
+        {
+          "id": 1,
+          "scenario": "A colleague says, \"ChatGPT is basically a search engine like Google.\" What is the most accurate response?",
+          "options": [
+            { "label": "A", "text": "That's correct - both return information from the web" },
+            { "label": "B", "text": "Not quite - LLMs generate responses by predicting the next word based on patterns in training data, whereas search engines index and retrieve existing web pages" },
+            { "label": "C", "text": "They're the same because they both use AI" }
+          ],
+          "correct": "B",
+          "rationale": "LLMs are generative models, not retrieval engines. Understanding this distinction helps teachers set appropriate expectations for AI output."
+        },
+        {
+          "id": 2,
+          "scenario": "You ask an AI tool to provide key dates for a history lesson. It confidently lists five dates, but two of them are wrong. This is an example of:",
+          "options": [
+            { "label": "A", "text": "A software bug that will be fixed in the next update" },
+            { "label": "B", "text": "The AI deliberately giving incorrect information" },
+            { "label": "C", "text": "An AI \"hallucination\" - where the model generates plausible-sounding but factually incorrect content" }
+          ],
+          "correct": "C",
+          "rationale": "Hallucinations are inherent to how LLMs work. Teachers must always verify factual claims, especially for curriculum content."
+        },
+        {
+          "id": 3,
+          "scenario": "A student starts calling their AI chatbot by a name and says, \"It really understands me.\" As their teacher, why is this a concern?",
+          "options": [
+            { "label": "A", "text": "It isn't - it's a sign of good engagement" },
+            { "label": "B", "text": "Anthropomorphising AI can lead to over-trust, emotional dependency, and a misunderstanding of what AI actually is - a statistical model, not a sentient being" },
+            { "label": "C", "text": "It's only a concern if the student is under 13" }
+          ],
+          "correct": "B",
+          "rationale": "DfE guidance explicitly warns against anthropomorphising AI. Teachers should help students understand AI's limitations."
+        },
+        {
+          "id": 4,
+          "scenario": "Which of the following best describes \"Narrow AI\" versus \"Generative AI\"?",
+          "options": [
+            { "label": "A", "text": "Narrow AI can do everything; Generative AI is limited to text" },
+            { "label": "B", "text": "Narrow AI performs one specific task (e.g., a spam filter); Generative AI can produce a wide range of new content (text, images, code, audio)" },
+            { "label": "C", "text": "They are different names for the same technology" }
+          ],
+          "correct": "B",
+          "rationale": "Understanding the spectrum of AI helps teachers identify which tools are appropriate for different educational tasks."
+        },
+        {
+          "id": 5,
+          "scenario": "Why is it important for teachers to understand that most AI systems operate as a \"black box\"?",
+          "options": [
+            { "label": "A", "text": "Because it means the AI is broken" },
+            { "label": "B", "text": "Because it means the AI keeps your data secret" },
+            { "label": "C", "text": "Because the internal reasoning process is not transparent, making it difficult to understand why a specific output was generated - which is critical when using AI for educational decisions" }
+          ],
+          "correct": "C",
+          "rationale": "Black box systems make it impossible to fully audit AI decisions, reinforcing the need for human oversight in education."
+        }
+      ]
+    },
+    {
+      "id": "section_2",
+      "title": "Part 2: Data Protection and Privacy / UK GDPR",
+      "questions": [
+        {
+          "id": 6,
+          "scenario": "A teacher uses a free, open AI chatbot to analyse a student's behavioural report by pasting the full text. What is the primary risk?",
+          "options": [
+            { "label": "A", "text": "The AI might give bad advice" },
+            { "label": "B", "text": "Free tools often lack enterprise-grade data protection. The student's personal data could be stored, used for training, or breached - violating UK GDPR" },
+            { "label": "C", "text": "There is no risk if the tool has a privacy policy" }
+          ],
+          "correct": "B",
+          "rationale": "Open tools process data on external servers. Student personal data requires tools with appropriate data processing agreements."
+        },
+        {
+          "id": 7,
+          "scenario": "Under UK GDPR, which \"lawful basis\" is most commonly used by schools to process student data through AI tools?",
+          "options": [
+            { "label": "A", "text": "Consent from parents" },
+            { "label": "B", "text": "The teacher's professional judgment" },
+            { "label": "C", "text": "\"Legitimate interest\" or \"public task\" - but only after a proper Data Protection Impact Assessment (DPIA) has been conducted" }
+          ],
+          "correct": "C",
+          "rationale": "Schools rarely rely on consent alone. DPIAs are essential before introducing AI tools that process personal data."
+        },
+        {
+          "id": 8,
+          "scenario": "What is the key difference between an \"Enterprise\" AI tool and a \"Free/Open\" AI tool from a data perspective?",
+          "options": [
+            { "label": "A", "text": "Enterprise tools are faster" },
+            { "label": "B", "text": "Enterprise tools typically have contractual data protection agreements, don't train on your data, and comply with organisational policies. Free tools often have weaker or no such guarantees" },
+            { "label": "C", "text": "There is no meaningful difference" }
+          ],
+          "correct": "B",
+          "rationale": "Enterprise agreements provide legal safeguards. Free tools may use input data for model training."
+        },
+        {
+          "id": 9,
+          "scenario": "Before your school adopts a new AI tool, what should always be completed first?",
+          "options": [
+            { "label": "A", "text": "A staff training session" },
+            { "label": "B", "text": "A trial with one class" },
+            { "label": "C", "text": "A Data Protection Impact Assessment (DPIA) to evaluate risks to student and staff data" }
+          ],
+          "correct": "C",
+          "rationale": "DPIAs are a legal requirement under UK GDPR when processing is likely to result in high risk to individuals."
+        },
+        {
+          "id": 10,
+          "scenario": "A school uses an AI tool to flag students who may need intervention based on attendance and grade data. What is the biggest concern?",
+          "options": [
+            { "label": "A", "text": "The AI might flag too many students" },
+            { "label": "B", "text": "AI-driven decisions about individuals must have meaningful human oversight. Automated profiling of children without review risks unfair or inaccurate outcomes" },
+            { "label": "C", "text": "It saves teachers time, so there are no concerns" }
+          ],
+          "correct": "B",
+          "rationale": "DfE guidance is clear that AI should support - not replace - professional judgment, especially in high-stakes decisions about children."
+        }
+      ]
+    },
+    {
+      "id": "section_3",
+      "title": "Part 3: Intellectual Property and Copyright",
+      "questions": [
+        {
+          "id": 11,
+          "scenario": "A student submits an essay. The teacher pastes it into an AI tool for marking. Who owns the intellectual property of that essay?",
+          "options": [
+            { "label": "A", "text": "The AI tool, because it processed the content" },
+            { "label": "B", "text": "The school, because it was submitted as schoolwork" },
+            { "label": "C", "text": "The student (or their parent/guardian), as they are the original creator" }
+          ],
+          "correct": "C",
+          "rationale": "Students retain copyright over their original work. Uploading it to AI tools may violate their IP rights."
+        },
+        {
+          "id": 12,
+          "scenario": "A teacher uses AI to generate a full lesson plan. They share it as their own work. What is the IP risk?",
+          "options": [
+            { "label": "A", "text": "There is no risk - AI-generated content has no copyright" },
+            { "label": "B", "text": "The legal status of AI-generated content's copyright is currently unclear and evolving. Teachers should be transparent about AI assistance and check their school's policy" },
+            { "label": "C", "text": "The AI company owns the copyright" }
+          ],
+          "correct": "B",
+          "rationale": "Copyright law for AI-generated content is unsettled. Schools should have clear policies on attribution and transparency."
+        },
+        {
+          "id": 13,
+          "scenario": "If AI-generated content unknowingly includes material from a copyrighted source, who could be liable?",
+          "options": [
+            { "label": "A", "text": "Only the AI company" },
+            { "label": "B", "text": "The person who published or shared the content could be liable for \"secondary copyright infringement\" even if they didn't know it was copied" },
+            { "label": "C", "text": "Nobody - AI content is always original" }
+          ],
+          "correct": "B",
+          "rationale": "Users bear responsibility for checking AI output for potential copyright infringement before publishing or sharing."
+        },
+        {
+          "id": 14,
+          "scenario": "A teacher uploads a copyrighted textbook PDF into an AI tool to generate a summary. What should they consider?",
+          "options": [
+            { "label": "A", "text": "It's fine because it's for educational use" },
+            { "label": "B", "text": "Uploading copyrighted material to AI tools may breach licensing terms. The \"fair dealing\" exception for education is narrow and may not cover AI processing" },
+            { "label": "C", "text": "Copyright doesn't apply to digital content" }
+          ],
+          "correct": "B",
+          "rationale": "Fair dealing exceptions are limited. Teachers should check licensing before uploading copyrighted materials to AI."
+        }
+      ]
+    },
+    {
+      "id": "section_4",
+      "title": "Part 4: Safeguarding and Online Safety",
+      "questions": [
+        {
+          "id": 15,
+          "scenario": "According to DfE guidance, what should always be the top priority when introducing AI in schools?",
+          "options": [
+            { "label": "A", "text": "Improving exam results" },
+            { "label": "B", "text": "Reducing teacher workload" },
+            { "label": "C", "text": "The safety of children - including data safety, emotional safety, and protection from harmful AI-generated content" }
+          ],
+          "correct": "C",
+          "rationale": "Safeguarding is the foundation. All AI adoption must be evaluated through the lens of child safety first."
+        },
+        {
+          "id": 16,
+          "scenario": "What is the safeguarding risk of AI-generated \"deepfakes\" in a school context?",
+          "options": [
+            { "label": "A", "text": "They are only a concern for celebrities" },
+            { "label": "B", "text": "AI can generate realistic fake images, audio, or video of real people - including children. This creates risks of bullying, CSAM (Child Sexual Abuse Material), and reputational harm" },
+            { "label": "C", "text": "Deepfakes are easy to detect so there is minimal risk" }
+          ],
+          "correct": "B",
+          "rationale": "DfE guidance highlights deepfakes as a serious safeguarding concern. Schools must include this in their online safety policies."
+        },
+        {
+          "id": 17,
+          "scenario": "A student becomes emotionally attached to an AI chatbot companion app and confides personal problems to it instead of trusted adults. Why is this a safeguarding concern?",
+          "options": [
+            { "label": "A", "text": "It's not - AI can provide good emotional support" },
+            { "label": "B", "text": "AI cannot provide genuine care, may give harmful advice, and the student may stop seeking help from qualified humans. Data shared may also not be secure" },
+            { "label": "C", "text": "It's only a problem if the student is very young" }
+          ],
+          "correct": "B",
+          "rationale": "Over-reliance on AI for emotional support can delay appropriate intervention and create data privacy risks."
+        },
+        {
+          "id": 18,
+          "scenario": "Schools must ensure AI tools meet the same standards as other online services. Which framework should guide this?",
+          "options": [
+            { "label": "A", "text": "The school's social media policy" },
+            { "label": "B", "text": "Keeping Children Safe in Education (KCSIE) and the school's filtering and monitoring standards" },
+            { "label": "C", "text": "The AI company's own safety guidelines" }
+          ],
+          "correct": "B",
+          "rationale": "KCSIE is the statutory framework. AI tools must meet the same filtering, monitoring, and safeguarding standards as any other school technology."
+        },
+        {
+          "id": 19,
+          "scenario": "A student receives a convincing AI-generated phishing email that appears to be from their teacher. This is an example of:",
+          "options": [
+            { "label": "A", "text": "A harmless prank" },
+            { "label": "B", "text": "AI-enabled social engineering/scam - a growing online safety threat that schools must address in their digital literacy curriculum" },
+            { "label": "C", "text": "A technical error in the school's email system" }
+          ],
+          "correct": "B",
+          "rationale": "AI-generated scams are increasingly sophisticated. Schools should teach students to verify communications and report suspicious messages."
+        }
+      ]
+    },
+    {
+      "id": "section_5",
+      "title": "Part 5: Academic Integrity and Assessment",
+      "questions": [
+        {
+          "id": 20,
+          "scenario": "A school invests in an \"AI detection tool\" to catch students using AI in their essays. What should they know?",
+          "options": [
+            { "label": "A", "text": "These tools are 100% accurate" },
+            { "label": "B", "text": "Current AI detection tools are unreliable - they produce high rates of false positives (especially for EAL students) and false negatives. They should not be used as sole evidence of misconduct" },
+            { "label": "C", "text": "They only work for ChatGPT, not other AI tools" }
+          ],
+          "correct": "B",
+          "rationale": "DfE guidance warns against over-reliance on AI detection tools. Professional judgment and process-based assessment are more reliable."
+        },
+        {
+          "id": 21,
+          "scenario": "What is the most effective way to maintain academic integrity in the age of AI?",
+          "options": [
+            { "label": "A", "text": "Banning all AI use" },
+            { "label": "B", "text": "Using AI detection software on every submission" },
+            { "label": "C", "text": "Redesigning assessments to focus on process (drafts, reflections, verbal explanations) rather than solely on the final product, and having clear, transparent policies" }
+          ],
+          "correct": "C",
+          "rationale": "Process-based assessment and clear policies are more effective and equitable than detection-based approaches."
+        },
+        {
+          "id": 22,
+          "scenario": "A student submits work that a teacher suspects was largely AI-generated. What is the appropriate first step?",
+          "options": [
+            { "label": "A", "text": "Give the student a zero" },
+            { "label": "B", "text": "Run it through an AI detector and act on the result" },
+            { "label": "C", "text": "Have a professional conversation with the student, ask them to explain their process and thinking, and refer to the school's academic integrity policy" }
+          ],
+          "correct": "C",
+          "rationale": "Professional dialogue is more reliable than AI detection. Students deserve a fair process before any sanctions."
+        },
+        {
+          "id": 23,
+          "scenario": "Your school's homework policy was written before generative AI became widely available. What should happen?",
+          "options": [
+            { "label": "A", "text": "It's still fine - homework rules don't change" },
+            { "label": "B", "text": "Nothing - students won't use AI for homework" },
+            { "label": "C", "text": "The policy should be reviewed and updated to address how AI may and may not be used for homework, with clear expectations communicated to students and parents" }
+          ],
+          "correct": "C",
+          "rationale": "Policies must evolve with technology. Clear, updated guidance prevents confusion and ensures fairness."
+        }
+      ]
+    },
+    {
+      "id": "section_6",
+      "title": "Part 6: Meaningful Use, Interacting with AI, and Pedagogy",
+      "questions": [
+        {
+          "id": 24,
+          "scenario": "\"Prompt engineering\" is an important skill for teachers using AI. What does it mean?",
+          "options": [
+            { "label": "A", "text": "Programming the AI's source code" },
+            { "label": "B", "text": "Crafting clear, specific, and structured instructions to get the best possible output from an AI tool" },
+            { "label": "C", "text": "Buying a premium subscription for better results" }
+          ],
+          "correct": "B",
+          "rationale": "Good prompts produce better results. Teachers who understand prompt engineering get significantly more value from AI tools."
+        },
+        {
+          "id": 25,
+          "scenario": "You use AI to generate reading comprehension questions. The AI produces questions that assume all students celebrate Christmas. This is an example of:",
+          "options": [
+            { "label": "A", "text": "A good set of seasonal questions" },
+            { "label": "B", "text": "Algorithmic bias - where the AI reflects the biases present in its training data, potentially marginalising students from different cultural or religious backgrounds" },
+            { "label": "C", "text": "A minor formatting issue" }
+          ],
+          "correct": "B",
+          "rationale": "AI bias can inadvertently exclude or stereotype. Teachers must review AI output for cultural sensitivity and inclusivity."
+        },
+        {
+          "id": 26,
+          "scenario": "Which of the following is the LOWEST risk use of AI for a teacher?",
+          "options": [
+            { "label": "A", "text": "Using AI to generate pastoral reports about named students" },
+            { "label": "B", "text": "Using AI to draft a generic lesson starter or create a set of example sentences for a grammar exercise" },
+            { "label": "C", "text": "Using AI to predict which students will fail their GCSEs" }
+          ],
+          "correct": "B",
+          "rationale": "Low-risk uses involve no personal data and allow full teacher review. High-risk uses involve student data and automated decisions."
+        },
+        {
+          "id": 27,
+          "scenario": "A teacher wants to use AI to create differentiated resources for a student with SEND. What must they ensure?",
+          "options": [
+            { "label": "A", "text": "That the AI tool has a \"SEND mode\"" },
+            { "label": "B", "text": "That the AI-generated resources are reviewed by a qualified professional (e.g., SENCo), that no identifiable student data is entered, and that the resources genuinely meet the student's specific needs rather than generic \"simplified\" content" },
+            { "label": "C", "text": "Nothing extra - AI automatically adapts to SEND needs" }
+          ],
+          "correct": "B",
+          "rationale": "AI cannot understand individual SEND needs without proper context. Human expertise must validate all SEND resources."
+        },
+        {
+          "id": 28,
+          "scenario": "The principle of \"Human in the Loop\" means:",
+          "options": [
+            { "label": "A", "text": "A human built the AI, so it's always trustworthy" },
+            { "label": "B", "text": "A qualified human must review, validate, and take responsibility for any AI-generated output before it is used with students or for decision-making" },
+            { "label": "C", "text": "The AI is checking the human's work" }
+          ],
+          "correct": "B",
+          "rationale": "This is a core DfE principle. AI assists; humans decide. No AI output should be used without professional review."
+        },
+        {
+          "id": 29,
+          "scenario": "A teacher asks AI to generate a 10-question quiz from a textbook chapter. Before using it in class, they should:",
+          "options": [
+            { "label": "A", "text": "Print it immediately to save time" },
+            { "label": "B", "text": "Check every question for accuracy, ensure the difficulty is appropriate, verify it aligns with learning objectives, and confirm no copyrighted content has been reproduced verbatim" },
+            { "label": "C", "text": "Only check the first and last questions" }
+          ],
+          "correct": "B",
+          "rationale": "Quality assurance is non-negotiable. Every AI-generated resource must be fully reviewed before classroom use."
+        },
+        {
+          "id": 30,
+          "scenario": "A colleague argues that using AI is \"wasteful\" because of its environmental impact (energy, water, carbon). How should you respond?",
+          "options": [
+            { "label": "A", "text": "Ignore them - technology always has a cost" },
+            { "label": "B", "text": "They raise a valid point. AI tools consume significant computational resources. Teachers should use AI purposefully and proportionately rather than habitually, and schools should consider the environmental impact in their AI policies" },
+            { "label": "C", "text": "AI is carbon neutral" }
+          ],
+          "correct": "B",
+          "rationale": "Environmental awareness is part of responsible AI use. Purposeful, targeted use minimises unnecessary computational waste."
+        }
+      ]
+    }
+  ]
+}

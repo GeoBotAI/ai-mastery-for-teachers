@@ -1,0 +1,555 @@
+{
+  "phases": [
+    {
+      "id": "phase_1",
+      "title": "Phase 1: AI as Creative Partner",
+      "focus": "Building confidence with AI through creative media - text, images, audio and video.",
+      "challenges": [
+        {
+          "id": "challenge_1",
+          "number": "1",
+          "title": "The Chatbot",
+          "focus": "Understanding how Large Language Models (LLMs) can act as a high-level \"Thought Partner\" for curriculum design and resource creation.",
+          "overview": "In this challenge, you will move from a blank page to a fully scaffolded unit of work. You'll learn how to \"train\" an AI on your specific curriculum requirements to ensure the output is high-quality and relevant.",
+          "activities": [
+            {
+              "index": 1,
+              "title": "The Sandbox",
+              "mode": "individual",
+              "task": "Use an LLM to outline a unit of 6 lessons for a specific topic (e.g., \"The Water Cycle\" or \"Introduction to Shakespeare\").",
+              "why": "This overcomes \"blank page syndrome.\" It helps you see the \"big picture\" of a unit instantly.",
+              "suggestedTools": [
+                "ChatGPT (GPT-5.2)",
+                "Claude (Sonnet)",
+                "Gemini",
+                "Microsoft Copilot"
+              ],
+              "proTips": [
+                "Don't just ask for a list. Ask the AI to: \"Act as an expert curriculum designer. Outline 6 lessons that build in cognitive complexity, using Bloom's Taxonomy as a guide.\""
+              ],
+              "promptIdeas": [],
+              "howToDoIt": null
+            },
+            {
+              "index": 2,
+              "title": "The Stress Test",
+              "mode": "pairs",
+              "task": "Swap your unit plan with a partner. Each of you \"feeds\" the AI a school document (like a Knowledge Organiser) and asks it to re-sequence the 6 lessons to ensure coverage of the curriculum objectives. Then challenge each other's plans - ask the AI to find gaps, missing objectives, or assumptions that wouldn't work for specific student groups.",
+              "why": "This teaches contextual prompting and keeps the AI grounded in your curriculum, for your school. Having a partner stress-test your plan mirrors real-life quality assurance and catches blind spots.",
+              "suggestedTools": [],
+              "proTips": [],
+              "promptIdeas": [
+                "I have attached our school's Knowledge Organiser for this topic. Please adjust the lesson sequence so that Lesson 3 specifically focuses on the 'Tier 3 Vocabulary' listed in the document."
+              ],
+              "howToDoIt": "Use the \"Upload\" feature (paperclip icon)."
+            },
+            {
+              "index": 3,
+              "title": "The Context Dump",
+              "mode": "individual",
+              "task": "Pick one lesson from your 6-lesson plan. Ask the AI to generate a detailed lesson plan for it. However, instead of typing, use the Microphone button on your phone or desktop to tell the AI exactly who your students are and what makes them tick, what they need, what works with them and what you want to ensure goes into your lesson.",
+              "why": "A generic AI knows pedagogy, but you know your students and your lessons should be personalised to them. Speaking your thoughts allows you to capture exactly what you want in an easier and quicker way than typing often allows.",
+              "suggestedTools": [],
+              "proTips": [
+                "Ask for a \"Common Misconceptions\" section. Teachers love this because it helps them anticipate where students will struggle."
+              ],
+              "promptIdeas": [],
+              "howToDoIt": "Open your AI app (ChatGPT, Gemini, or Copilot) on your mobile device. Tap the Microphone/Voice icon. Speak naturally - don't worry about being professional - just talk to it like a colleague."
+            },
+            {
+              "index": 4,
+              "title": "The Department Planner",
+              "mode": "pairs",
+              "task": "With your partner, co-build a \"Gem\" (in Google Gemini) that is \"pre-loaded\" with your subject's knowledge and your classes.",
+              "why": "Instead of constantly prompting from scratch every time you begin, a custom Gem gets you closer to building a digital assistant that knows your style, your school, and your curriculum. In its knowledge base, add in the knowledge organiser you would like it to reference, a unit planner, a document about your class, your pedagogical approach and the way you like your lessons to flow. Be as specific as possible whilst ensuring to stay within GDPR and safeguarding guidelines. Building this together means you share the workload and create something the whole department can use.",
+              "suggestedTools": [],
+              "proTips": [],
+              "promptIdeas": [],
+              "howToDoIt": "1. Go to Google Gemini. On the left, see 'Gems'. 2. Click 'Create New'. In the 'Instructions' tab, write: \"You are an assistant for [Subject] teachers at [School Name]. Your role is to support a teacher to plan lessons, create resources and design assessments.\" Upload your department's marking policy, year-long curriculum map, and the knowledge organisers you are using. Mention that they are attached in the knowledge base within the instructions."
+            }
+          ]
+        },
+        {
+          "id": "challenge_2",
+          "number": "2",
+          "title": "Trust, Safety & Quality Gates",
+          "focus": "Learning to verify AI output, spot bias, and establish safe data practices before using AI with real student information.",
+          "overview": "AI is powerful - but it is not infallible. In this challenge, you will learn to critically evaluate what AI gives you, check for hidden assumptions, and create a reusable safety process for your department. These are the habits that separate confident AI users from those who get caught out.",
+          "activities": [
+            {
+              "index": 1,
+              "title": "The Hallucination Hunt",
+              "mode": "individual",
+              "task": "Choose a niche topic within your subject. Ask an LLM to generate 10 \"facts\" about it. Then, manually verify each one using trusted sources. Label each fact as Confirmed, Partially Correct, or Hallucinated.",
+              "why": "LLMs can sound extremely convincing even when they are completely wrong. This activity trains your instinct for spotting plausible-sounding nonsense - the single most important skill for any teacher using AI.",
+              "suggestedTools": [],
+              "proTips": [
+                "Try a topic you know deeply. You'll be surprised how confidently the AI states things that are subtly wrong. The more niche the topic, the more likely the AI will hallucinate."
+              ],
+              "promptIdeas": [],
+              "howToDoIt": null
+            },
+            {
+              "index": 2,
+              "title": "The Bias Check",
+              "mode": "pairs",
+              "task": "Take a lesson explanation or resource you generated in Challenge 1. Ask the AI to rewrite it for a specific student group (e.g., EAL learners, students with SEND, or a specific cultural context). Compare the two versions with your partner and audit them for assumptions, stereotypes, or missing nuance.",
+              "why": "AI models are trained on internet data, which carries biases. If you don't check, those biases silently enter your resources. Two pairs of eyes are better than one for spotting what feels \"off.\"",
+              "suggestedTools": [],
+              "proTips": [],
+              "promptIdeas": [],
+              "howToDoIt": null
+            },
+            {
+              "index": 3,
+              "title": "The Policy Script",
+              "mode": "group",
+              "task": "As a group, create a reusable \"GDPR Script\" - a short, practical checklist that any teacher in your department can follow before pasting student-related information into an AI tool. It should cover: what must be anonymised, what should never be uploaded, and a quick process for replacing names with code names.",
+              "why": "Data safety isn't just a legal requirement - it's the foundation that makes all the later challenges (especially data analysis) possible. Creating this as a group means everyone is aligned and accountable.",
+              "suggestedTools": [],
+              "proTips": [],
+              "promptIdeas": [
+                "Act as a data protection advisor for a UK primary/secondary school. Help me draft a simple one-page checklist that teachers can follow before using any AI tool with student-related data. Include GDPR considerations and practical anonymisation steps."
+              ],
+              "howToDoIt": null
+            }
+          ]
+        },
+        {
+          "id": "challenge_3",
+          "number": "3",
+          "title": "The Image Creator",
+          "focus": "Moving beyond Google Images. Learning to prompt for precise, custom visuals that support \"Dual Coding\" and make abstract concepts concrete.",
+          "overview": "In this challenge, you will stop spending hours searching for \"good enough\" images and start creating the perfect images or resources in seconds. You will move from simple pictures to complex informational diagrams. A quick note on expectations: text-based AI is now very reliable; image-based AI can still be unpredictable and sometimes struggles with rendering accurate text within images. Expect to iterate and refine your prompts.",
+          "activities": [
+            {
+              "index": 1,
+              "title": "The \"Impossible Image\" Creator",
+              "mode": "individual",
+              "task": "Create a single image for an upcoming lesson that you would never be able to find on Google Images.",
+              "why": "Visuals are crucial for engagement and anchoring memory. AI allows for hyper-specific scenarios that bridge student interests with curriculum content.",
+              "suggestedTools": [
+                "Microsoft Copilot (Bing Image Creator) - Free and easy access",
+                "Adobe Firefly - Great for schools as it's trained on \"safe\" data",
+                "Gemini (Nano Banana Pro)"
+              ],
+              "proTips": [
+                "Think of combining two disparate concepts. Instead of searching for \"Roman soldier,\" try prompting for: \"A photorealistic image of a Roman centurion looking confused while holding an iPhone, standing in front of the Colosseum.\""
+              ],
+              "promptIdeas": [],
+              "howToDoIt": null
+            },
+            {
+              "index": 2,
+              "title": "The Misconception Check",
+              "mode": "pairs",
+              "task": "One partner uses Gemini Nano Banana Pro (select 'Create Images' and 'Thinking' in the model selector) or ChatGPT's image generator to turn a dense paragraph of text (from a website or a knowledge organiser) into a clear, accurate infographic-style image. The other partner then fact-checks it - are the visuals accurate? Has the AI introduced any errors, historical inaccuracies, or misleading representations?",
+              "why": "Images combined with text are a lot more helpful and a lot more accessible as a learning support resource. But AI-generated visuals can contain subtle errors - especially in diagrams and infographics. Having a partner check builds a healthy verification habit.",
+              "suggestedTools": [],
+              "proTips": [
+                "If the output shows incorrect text, check your model is set to 'Thinking' and decrease the amount of text for a simplified version."
+              ],
+              "promptIdeas": [
+                "Read the text above. Create an accurate, visually appealing infographic that summarizes these specific points. This will be read by children so keep it simple and clear."
+              ],
+              "howToDoIt": "Paste a paragraph of text into Gemini."
+            },
+            {
+              "index": 3,
+              "title": "Visualising Complexity",
+              "mode": "group",
+              "task": "Create a visual representation of a complex system or topic showing how different elements connect (a visual mind map). Each member of the group takes ownership of one component and generates their section, then the group assembles them into a single connected visual.",
+              "why": "This helps students build schema, and gives the teacher an easy way to represent the relationships between ideas rather than just isolated facts. Working as a group mirrors how real departments divide curriculum content.",
+              "suggestedTools": [
+                "ChatGPT Image Generator",
+                "Gemini Nano Banana Pro"
+              ],
+              "proTips": [
+                "If the topic is \"The Causes of WWI,\" don't ask for bubbles with words. Ask for: \"An illustration showing a complex machine with interlocking gears. Each gear is labeled with a visual symbol representing causes of WWI: a gear with a crown (imperialism), a gear with a battleship (militarism), a gear with two shaking hands over a map (alliances).\""
+              ],
+              "promptIdeas": [],
+              "howToDoIt": null
+            },
+            {
+              "index": 4,
+              "title": "The Visual Bank",
+              "mode": "pairs",
+              "task": "Create a shared collection of AI-generated \"visual anchor\" images for your key Tier 3 vocabulary across a year group or department. Each word should be accompanied by a consistent-style image (e.g., \"watercolour illustration\" or \"flat vector icon\") and a short, clear definition.",
+              "why": "This is essential for EAL and SEN support. Providing a bespoke visual cue along with the definition significantly aids retention. Building it as a shared bank means the whole department benefits and the style stays consistent across resources.",
+              "suggestedTools": [],
+              "proTips": [
+                "Create distinct, simple icon-style images for the vocabulary words (e.g., for biology: \"mitochondria,\" \"nucleus,\" etc.) Keep the style consistent and add a short clear meaning for each."
+              ],
+              "promptIdeas": [],
+              "howToDoIt": null
+            }
+          ]
+        },
+        {
+          "id": "challenge_4",
+          "number": "4",
+          "title": "The DJ",
+          "focus": "Enhancing the \"Soundtrack\" of your classroom. You will create catchy revision songs and high-quality voice snippets to scaffold complex instructions.",
+          "overview": "In this challenge, you will use AI to turn curriculum facts into memorable music and provide \"on-demand\" verbal support for your students. You'll learn how to create audio that lives inside your slides or is accessible via a simple QR code on a worksheet.",
+          "activities": [
+            {
+              "index": 1,
+              "title": "The Revision EP",
+              "mode": "pairs",
+              "task": "Take a list of \"Must-Know\" facts or vocabulary from your Knowledge Organiser. One partner drafts the lyrics; the other chooses the genre and refines the style. Use Suno to generate a 2-minute song in a genre your students love (e.g., Synth-pop, Dance, or Country).",
+              "why": "Music uses \"melodic encoding\" to help information stick in long-term memory. It's the ultimate retrieval tool.",
+              "suggestedTools": [
+                "Suno AI (Free tier available)"
+              ],
+              "proTips": [],
+              "promptIdeas": [
+                "An upbeat 90s Hip-Hop song explaining the causes of the French Revolution. Use a clear male voice and make the chorus very catchy."
+              ],
+              "howToDoIt": "1. Switch to \"Custom Mode.\" 2. Paste your facts into the \"Lyrics\" box."
+            },
+            {
+              "index": 2,
+              "title": "Voice Snippets",
+              "mode": "pairs",
+              "task": "Use ElevenLabs to create three \"Sound Snippets\" between you. One partner writes the scripts, the other audits them for tone, clarity and safeguarding before generating: Step-by-Step Instructions (breaking down a complex task), The \"Key Concept\" Whisperer (a 30-second explanation of a difficult term), and The Encourager (a personalised \"Well done\" message in a famous-sounding voice).",
+              "why": "This provides asynchronous support. Students who struggle to follow multi-step verbal instructions can hit \"Play\" as many times as they need without feeling self-conscious or having to repeatedly call the teacher.",
+              "suggestedTools": [
+                "ElevenLabs"
+              ],
+              "proTips": [
+                "Use the \"Voice Design\" feature to find a voice that matches the tone of your subject (e.g., a \"Wise Explorer\" voice for Geography)."
+              ],
+              "promptIdeas": [],
+              "howToDoIt": "How to Display & Use Audio in Class:\n1. The PowerPoint \"Auto-Narrator\": Download your ElevenLabs MP3, go to your slide, Insert > Audio > Audio on my PC. In the Playback tab, select \"Play Automatically.\" You can even hide the audio icon.\n2. The \"Talking Worksheet\" (QR Codes): Upload your audio to a cloud drive. Copy the \"Shared Link.\" Use a free QR code generator to turn that link into a code. Paste it onto your paper worksheets.\n3. The \"Mote\" Extension: Use the Mote extension for Google Slides or Google Docs to record or upload AI audio and pin it directly to a specific comment or slide."
+            }
+          ]
+        },
+        {
+          "id": "challenge_5",
+          "number": "5",
+          "title": "The Slide Orchestrator",
+          "focus": "Moving from manual design to the orchestration of AI models to create usable classroom slideshows.",
+          "overview": "In this challenge, you will transition from manually formatting powerpoints to strategically directing AI tools. You will learn to navigate different workflows, from instant AI-generated slides to copying your carefully prepared slideshow breakdown into design software.",
+          "activities": [
+            {
+              "index": 1,
+              "title": "The Gamma Workflow",
+              "mode": "individual",
+              "task": "Use a Large Language Model (LLM) to generate the content for a presentation. Copy this text and paste it into Gamma's AI creation tour text for it to automatically generate a structured, visually appealing slideshow.",
+              "why": "This is a very \"low-friction\" workflow that still keeps you doing the thinking. Gamma acts as an \"AI-first\" platform that reads your pasted text and automatically assigns headers, lists, and layout blocks, saving you the time of manual formatting.",
+              "suggestedTools": [
+                "ChatGPT, Gemini, or Claude (for the text)",
+                "Gamma (for the slides)"
+              ],
+              "proTips": [
+                "Once Gamma creates your deck, use its built-in AI Agent to quickly restyle or make tweaks to the slides created."
+              ],
+              "promptIdeas": [],
+              "howToDoIt": null
+            },
+            {
+              "index": 2,
+              "title": "The Grounded Slideshow",
+              "mode": "individual",
+              "task": "Upload a school curriculum document (or paste your LLM-generated slideshow text) directly into NotebookLM. NotebookLM is Google's free document AI tool - you upload your own files and it becomes an expert on that content, keeping all its answers grounded in what you've provided. In the Studio section click Slides and ask it to structure a highly effective slideshow presentation that includes all the pedagogical elements required for your specific lesson.",
+              "why": "By grounding the AI in your specific curriculum documents or outline, you ensure the presentation structure is factually accurate, aligned with your teaching goals, and free from AI hallucinations.",
+              "suggestedTools": [
+                "NotebookLM"
+              ],
+              "proTips": [],
+              "promptIdeas": [
+                "Act as an expert teacher. Based on the uploaded curriculum source, create a 10-slide presentation structure. Include a title, key talking points, key visuals and class activities mentioned and a specific engaging activity for each slide to ensure the lesson is effective."
+              ],
+              "howToDoIt": null
+            },
+            {
+              "index": 3,
+              "title": "The Coded Canvas",
+              "mode": "pairs",
+              "task": "Use a coding-capable AI workspace to write the underlying code (like HTML/JS or Markdown) for a custom slideshow that meets your exact teaching requirements.",
+              "why": "Coding your own slides gives you unique interactive capabilities and bypasses the rigid templates of standard presentation software. The AI handles the complex coding; you simply describe what you want the slides to look like and do.",
+              "suggestedTools": [
+                "ChatGPT (Canvas)",
+                "Canva Code",
+                "Claude (Artifacts)",
+                "Gemini"
+              ],
+              "proTips": [],
+              "promptIdeas": [],
+              "howToDoIt": "Ask the AI to \"Code a sleek, interactive HTML presentation about [Topic] and include all of your pedagogical approaches.\" Once generated, use the AI's built-in preview window to see your slides instantly, or copy the code into a free tool like Replit to run it on your classroom board."
+            },
+            {
+              "index": 4,
+              "title": "The Canva Polish",
+              "mode": "individual",
+              "task": "Create a detailed presentation outline using an LLM. Next, open Canva, select a presentation template, and manually paste and tweak your ChatGPT outline into the slides. Add high-quality Canva visuals, charts, embed videos and graphics as you go.",
+              "why": "While fully automated tools are fast, Canva gives you pixel-perfect control over your final product. This workflow uses the LLM to do the heavy cognitive lifting (the structure and content) while allowing you to leverage Canva's massive asset library for premium visual impact - keeping you and your expertise at the forefront.",
+              "suggestedTools": [
+                "ChatGPT, Gemini, or Claude (for the text)",
+                "Canva (for the slides)"
+              ],
+              "proTips": [
+                "Use Canva's AI \"Magic Studio\" features to refine your slides as you build. You can tag elements to adjust the layout, generate custom images for specific slides, or automatically apply a cohesive colour palette to your newly pasted text."
+              ],
+              "promptIdeas": [],
+              "howToDoIt": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phase_2",
+      "title": "Phase 2: AI as Thinking Partner",
+      "focus": "Research, logic, and deep analysis.",
+      "challenges": [
+        {
+          "id": "challenge_6",
+          "number": "6",
+          "title": "The Research Assistant",
+          "focus": "Moving beyond surface-level summaries. Use AI to find evidence-based pedagogical strategies, verified resources, and academic updates for your subject.",
+          "overview": "In this challenge, you will harness the power of \"Deep Research Models.\" Unlike standard AI, these tools take their time to \"think\" and browse the live web, ensuring the information you get is grounded in current academic and professional knowledge.",
+          "activities": [
+            {
+              "index": 1,
+              "title": "The Deep Dive",
+              "mode": "individual",
+              "task": "Select a specific topic you teach and a specific age group. Use a Deep Research tool to find the top pedagogical recommendations backed by educational research.",
+              "why": "It bridges the gap between academic theory and classroom practice without you needing to read 50-page journals.",
+              "suggestedTools": [
+                "Gemini Deep Research (Free tier allows up to 10 reports/month)",
+                "ChatGPT Deep Research (available on Plus/Pro plans)",
+                "Perplexity AI (excellent for cited sources)"
+              ],
+              "proTips": [],
+              "promptIdeas": [
+                "Run a deep research query into effective teaching practice strategies for teaching Year 4 fractions. Focus on peer-reviewed studies from the last 5 years and provide a summary of actionable classroom techniques as well as learning sciences that coincide with the cognitive development of children at this age."
+              ],
+              "howToDoIt": null
+            },
+            {
+              "index": 2,
+              "title": "Source Triangulation",
+              "mode": "pairs",
+              "task": "Identify a specific need (e.g., \"Scaffolds for Dyscalculia\" or \"Visual Timetables for Autistic learners\"). Use Deep Research to find freely available and recognised resources or toolkits. Before accepting anything, each partner independently verifies at least 2 key claims from the AI's output using trusted sources. Compare what you found.",
+              "why": "Teachers often spend hours hunting for quality SEND materials. This activity proves AI can curate a high-quality \"shortlist\" of verified websites and PDF downloads in seconds - but also builds the habit of checking before trusting.",
+              "suggestedTools": [],
+              "proTips": [
+                "Tell the AI to: \"Only include resources from reputable organizations like the British Dyslexia Association, NASEN, or government-approved education hubs.\" Check with your SENCO to see how well it did."
+              ],
+              "promptIdeas": [],
+              "howToDoIt": null
+            },
+            {
+              "index": 3,
+              "title": "The Resource Pack",
+              "mode": "group",
+              "task": "Upload an existing Knowledge Organiser (or paste the text). Ask the Deep Research tool to check for any outdated facts, missing key concepts, or \"new-to-the-field\" discoveries that should be included. As a group, compile the verified findings into a SEND-friendly resource pack that the department can use.",
+              "why": "Science, History, and Geography are constantly evolving. This ensures your curriculum remains cutting-edge and accurate - and the group format means the workload is shared and the output is immediately useful.",
+              "suggestedTools": [],
+              "proTips": [],
+              "promptIdeas": [],
+              "howToDoIt": "1. Upload your document. 2. The Prompt: \"Analyse this Knowledge Organiser on [Topic]. Conduct deep research to see if any of these facts have been updated by recent discoveries (e.g., new archaeological finds or NASA data). Suggest 3 'Stretch and Challenge' facts that are currently missing.\""
+            }
+          ]
+        },
+        {
+          "id": "challenge_7",
+          "number": "7",
+          "title": "The Knowledge Engine (NotebookLM)",
+          "focus": "Turn documents that sit in folders into a living, breathing knowledge base. You will use NotebookLM to master complex school policies, curriculum research, or professional development materials.",
+          "overview": "Most schools are drowning in documents: SIPs (School Improvement Plans), SEND policies, curriculum content and CPD resources. In this challenge, you will upload these \"hard-to-read\" files into a private notebook and use AI to interrogate, summarize, and even \"listen\" to them.",
+          "activities": [
+            {
+              "index": 1,
+              "title": "The Department Brain",
+              "mode": "pairs",
+              "task": "With your partner, create a shared notebook and upload 3-5 \"heavy\" documents between you. These could be the Deep Research reports from Challenge 6, your School Development Plan, or a 50-page curriculum framework. Use the Chat function to ask the notebook \"cross-document\" questions.",
+              "why": "It centralizes your expertise. Instead of searching through five different PDFs for one piece of information, you now have a single \"brain\" that has read them all. Building it together means it becomes a genuine department resource.",
+              "suggestedTools": [
+                "NotebookLM (Free)"
+              ],
+              "proTips": [
+                "You can also add YouTube URLs of educational lectures or web links to key articles."
+              ],
+              "promptIdeas": [
+                "Based on all the research I've uploaded, what are the three most common barriers to learning for our Year 7 cohort?",
+                "Does our current Marking Policy (Source A) actually align with the latest Cognitive Science research (Source B)?",
+                "Create a 5-point executive summary for a busy Headteacher who only has 2 minutes to read this."
+              ],
+              "howToDoIt": null
+            },
+            {
+              "index": 2,
+              "title": "The Audio Overview",
+              "mode": "individual",
+              "task": "Navigate to the \"Notebook Guide\" and click \"Generate\" on the Audio Overview.",
+              "why": "This creates a high-quality, two-person \"Deep Dive\" podcast discussion about your specific documents. It's perfect for teachers to listen to during their commute. 2026 Bonus: You can now click \"Join\" (Interactive Mode) to interrupt the hosts and ask them to explain a specific point!",
+              "suggestedTools": [],
+              "proTips": [],
+              "promptIdeas": [],
+              "howToDoIt": null
+            },
+            {
+              "index": 3,
+              "title": "The Studio Pack",
+              "mode": "group",
+              "task": "Use the \"Studio\" panel on the right to generate three instant resources: A Study Guide (includes an outline, quiz, and glossary), an FAQ (the most likely questions parents or staff will ask), and a Mind Map (a visual breakdown of how all the uploaded documents connect).",
+              "why": "This turns \"input\" (reading) into \"output\" (CPD or teaching resources) with zero extra effort, grounded in expertise.",
+              "suggestedTools": [],
+              "proTips": [
+                "Try all of the options in \"Studio\" and see what works for you. This tool is 13+."
+              ],
+              "promptIdeas": [],
+              "howToDoIt": null
+            }
+          ]
+        },
+        {
+          "id": "challenge_8",
+          "number": "8",
+          "title": "The Data Analyst",
+          "focus": "Turning raw assessment data into actionable classroom strategies. You will use AI to spot \"invisible\" trends and automatically group students for targeted support.",
+          "overview": "In this challenge, you will act as a data scientist. You will take anonymized results and use an LLM or NotebookLM to find out exactly where your cohort is thriving and where they are \"stalling.\"\nThe Golden Rule of Data Safety: Never upload real student names, birthdays, or identifiable data into a public AI. Use the GDPR Script from Challenge 2.",
+          "activities": [
+            {
+              "index": 1,
+              "title": "The Secure Sandbox",
+              "mode": "individual",
+              "task": "Take an Excel sheet or table of results. Anonymise it using code names. Then, upload the file into your chosen AI (ChatGPT, Gemini, or NotebookLM).",
+              "why": "This ensures you are GDPR-compliant while still getting the benefits of deep analysis.",
+              "suggestedTools": [],
+              "proTips": [
+                "\"I am going to provide you with a table of results. Analyze the text provided and give me the trends within the cohort.\""
+              ],
+              "promptIdeas": [],
+              "howToDoIt": null
+            },
+            {
+              "index": 2,
+              "title": "The Grouping Challenge",
+              "mode": "pairs",
+              "task": "Ask the AI to identify the top strengths and top areas of improvement for the whole cohort, then tell it to split the class into flexible working groups based on their specific gaps. Compare the AI's groupings with your own professional judgment. Discuss the discrepancies with your partner.",
+              "why": "AI can spot specific data trends and suggest what we might be missing in class. But data alone doesn't know that two students can't sit together, or that one learner's low score was due to absence. The conversation between AI insight and teacher judgment is where the real value lies.",
+              "suggestedTools": [],
+              "proTips": [],
+              "promptIdeas": [
+                "Looking at these results, where are the strongest areas of success and challenge? Are there any 'outlier' students who performed significantly differently than the average? Based on the gaps you found, split the class into flexible working groups and create a specific 10-minute 'Booster Activity' for each group."
+              ],
+              "howToDoIt": null
+            },
+            {
+              "index": 3,
+              "title": "The Feedback Drafter",
+              "mode": "group",
+              "task": "Upload a marking rubric alongside anonymised student work. Ask the AI to draft personalised written feedback for each student based on the rubric. As a group, review the AI's drafts, edit them for accuracy and warmth, and discuss where the AI got it right and where the feedback needed a human touch.",
+              "why": "Marking and feedback is one of the most time-consuming parts of teaching. AI can handle the \"first draft\" of feedback, freeing you to focus on personalising and refining it.",
+              "suggestedTools": [],
+              "proTips": [],
+              "promptIdeas": [],
+              "howToDoIt": "\"Here is a marking rubric for [Subject/Task]. Here are the anonymised results for 10 students. For each student, draft 2-3 sentences of specific, actionable feedback based on their performance against the rubric. Be encouraging but honest.\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phase_3",
+      "title": "Phase 3: The Builder & Strategist",
+      "focus": "Technical construction and holistic workflow design.",
+      "challenges": [
+        {
+          "id": "challenge_9",
+          "number": "9",
+          "title": "The Tool Builder",
+          "focus": "Use code to build custom interactive apps, quizzes, games, and flashcards that run directly in your browser. No coding experience required.",
+          "overview": "In this challenge, you will create dynamic web-based tools that react to student input. The key skill here is describing what you want in plain English and letting the AI write the code for you.",
+          "activities": [
+            {
+              "index": 1,
+              "title": "The Spec Writer",
+              "mode": "pairs",
+              "task": "One partner writes the plain English description of an interactive quiz (what it should do, how it should look, what content it covers). The other partner acts as the \"QA Tester\" - they paste the description into the AI, run the generated code, and find any bugs or missing features. Swap roles and repeat. The quiz should have 5 multiple-choice questions, a progress bar, and a \"Score Summary\" at the end.",
+              "why": "Standard quizzes are linear. A coded quiz can give quick and engaging ways of assessing learning. Writing a clear \"spec\" is the most important skill in code generation.",
+              "suggestedTools": [
+                "ChatGPT Canvas",
+                "Claude Artifacts"
+              ],
+              "proTips": [],
+              "promptIdeas": [
+                "Create a sleek, interactive multiple-choice quiz about the Periodic Table. Use bright colours, reveal the answer after every question, add a 'Next' button, and make sure it works as a single HTML file."
+              ],
+              "howToDoIt": null
+            },
+            {
+              "index": 2,
+              "title": "The Flashcard App",
+              "mode": "pairs",
+              "task": "Build a set of digital flashcards together. When clicked, the \"card\" should flip over with a smooth 3D animation to reveal the definition or answer.",
+              "why": "This is a powerful \"Dual Coding\" tool. You can display this on the board for a whole-class retrieval session.",
+              "suggestedTools": [],
+              "proTips": [
+                "\"Make the flashcards look like physical cards. Add a 'Shuffle' button at the bottom so we can play multiple rounds.\""
+              ],
+              "promptIdeas": [],
+              "howToDoIt": null
+            },
+            {
+              "index": 3,
+              "title": "The Game Suite",
+              "mode": "group",
+              "task": "As a group, build a standardised suite of 3 interactive games for a specific unit. For example: \"Catch the Prime Numbers\" (numbers fall from the top; click only the primes), \"Sort the Sentence\" (drag and drop words into correct order), or a \"Matching Pairs\" memory game with Tier 3 vocabulary. Agree on a consistent design style.",
+              "why": "Gamification is both a great \"Hook\" and an engagement tool. Having a game that uses your exact concepts and vocabulary makes the learning bespoke.",
+              "suggestedTools": [],
+              "proTips": [],
+              "promptIdeas": [],
+              "howToDoIt": "How to Display Your Code:\nOption A: The \"One-Click Preview\" (Fastest) - Most modern AI tools have a \"Preview\" or \"Run\" button. Click \"Preview,\" then hit \"Open in New Tab\" or \"Fullscreen.\"\nOption B: The \"Replit\" Method (Best for Saving) - Copy the code. Go to Replit.com (Free). Click \"Create Repl,\" select \"HTML/CSS/JS,\" paste your code. Hit \"Run.\" It gives you a short URL."
+            }
+          ]
+        },
+        {
+          "id": "challenge_10",
+          "number": "10",
+          "title": "The AI-Human Workflow",
+          "focus": "Using all skills to put together a full-cycle workflow mapping. Taking a complex educational responsibility from a blank page to a finished, high-impact resource.",
+          "overview": "Group Activity. Choose a task important to you. Examples:\nExample A: The \"Blank Slate\" Lesson - Take curriculum objectives and build the full unit.\nExample B: The 6-Week Interventions - Create an intervention series based on individual needs.\nExample C: The Deep Dive Review - Use a term's worth of data to create a \"Next Steps\" roadmap.",
+          "activities": [
+            {
+              "index": 1,
+              "title": "The Workflow Blueprint",
+              "mode": "group",
+              "task": "Work through the 5 workflow phases:\nPhase 1 - Define \"Success Criteria.\" What will you measure? Time saving? Teacher confidence? Pupil Achievement?\nPhase 2 - Map out all stages. Allocate human and AI roles. Map on paper first and discuss.\nPhase 3 - Set AI on tasks that don't need supervision while you undertake other tasks. Review and edit AI output.\nPhase 4 - Run the workflow in a real-world setting. Make notes on what went well and what to change.\nPhase 5 - Return to the group to review the workflow and discuss impact.",
+              "why": "This is the capstone activity that brings together everything learned across all challenges into a practical, real-world application.",
+              "suggestedTools": [],
+              "proTips": [],
+              "promptIdeas": [],
+              "howToDoIt": null
+            },
+            {
+              "index": 2,
+              "title": "The Strategy Map",
+              "mode": "group",
+              "task": "Create a 1-page map showing where AI is used in the department's weekly cycle and where it is deliberately not used. Be explicit about the boundaries.",
+              "why": "This becomes your team's shared understanding of where AI helps and where human judgment must lead.",
+              "suggestedTools": [],
+              "proTips": [],
+              "promptIdeas": [],
+              "howToDoIt": null
+            },
+            {
+              "index": 3,
+              "title": "The Quality Gate",
+              "mode": "group",
+              "task": "Produce a final \"Department AI Policy\" checklist - a practical, one-page document covering: when to use AI, when not to, how to verify output, how to handle data safely, and how to be transparent with students and parents about AI use.",
+              "why": "This creates a lasting, reusable resource that codifies everything learned throughout the challenge series.",
+              "suggestedTools": [],
+              "proTips": [],
+              "promptIdeas": [],
+              "howToDoIt": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

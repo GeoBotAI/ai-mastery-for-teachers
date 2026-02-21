@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Mastery for Teachers - Home</title>
+  <link rel="stylesheet" href="css/styles.css?v=3">
+</head>
+<body class="inner-page">
+  <div class="menu-container fade-in">
+    <h1 class="menu-title">AI Mastery for Teachers</h1>
+    <p class="menu-tagline">A challenge series for AI confidence and workflow mastery</p>
+    <p class="menu-note">All activities can be undertaken using free accounts</p>
+
+    <div class="about-intro">
+      <p>Welcome! This programme is designed to take you from AI-curious to AI-confident through two stages. Work through them in order to build a solid foundation of safe practice before exploring the creative and practical power of AI in your classroom.</p>
+    </div>
+
+    <!-- Stage 1 -->
+    <div class="stage-card">
+      <div class="stage-card__header">
+        <span class="stage-number">Stage 1</span>
+        <h2 class="stage-card__title">Safe &amp; Responsible Use</h2>
+      </div>
+      <p class="stage-card__desc">A 30 scenario-based question assessment covering data protection, safeguarding, copyright, academic integrity and responsible classroom use. The quiz reflects your learning from Department for Education guidance. You need <strong>90%</strong> to pass and receive your certificate.</p>
+      <p class="stage-card__link-line"><a href="https://www.gov.uk/government/collections/using-ai-in-education-settings-support-materials" target="_blank" rel="noopener" style="color:var(--color-accent); font-weight:600;">&#128279; Access the DfE guidance on using AI in education here before taking the assessment</a></p>
+      <a href="quiz.html" class="btn-primary stage-card__btn" id="stage1Btn">Begin Assessment</a>
+      <span class="stage-card__status" id="stage1Status"></span>
+    </div>
+
+    <!-- Stage 2 -->
+    <div class="stage-card" id="stage2Card">
+      <div class="stage-card__header">
+        <span class="stage-number">Stage 2</span>
+        <h2 class="stage-card__title">AI Challenge Series</h2>
+      </div>
+      <p class="stage-card__desc">9 progressive challenges across 3 phases taking you from creative AI partner to strategic workflow designer. Each challenge contains hands-on activities you can do individually, in pairs, or as a group.</p>
+      <div class="stage-card__links menu-grid" id="stage2Links">
+        <a href="challenges.html" class="menu-card">
+          <span class="menu-card__icon">&#127942;</span>
+          <span class="menu-card__label">Challenges</span>
+        </a>
+        <a href="gallery.html" class="menu-card">
+          <span class="menu-card__icon">&#128444;&#65039;</span>
+          <span class="menu-card__label">Gallery</span>
+        </a>
+        <a href="tools.html" class="menu-card">
+          <span class="menu-card__icon">&#128295;</span>
+          <span class="menu-card__label">Tool Directory</span>
+        </a>
+        <a href="prompts.html" class="menu-card">
+          <span class="menu-card__icon">&#9997;&#65039;</span>
+          <span class="menu-card__label">Prompt Engineering</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/storage.js?v=3"></script>
+  <script src="js/auth.js?v=3"></script>
+  <script src="js/app.js?v=3"></script>
+  <script>
+  (function() {
+    var quizPassed = StorageManager.isQuizPassed();
+    var quizResult = StorageManager.getQuizResult();
+    var statusEl = document.getElementById('stage1Status');
+    var stage2Card = document.getElementById('stage2Card');
+    var stage2Links = document.getElementById('stage2Links');
+    var stage1Btn = document.getElementById('stage1Btn');
+
+    // Update Stage 1 status
+    if (quizPassed) {
+      stage1Btn.textContent = 'Retake Assessment';
+      stage1Btn.style.background = 'var(--color-surface-hover)';
+      stage1Btn.style.border = '1px solid var(--color-success)';
+      statusEl.innerHTML = '&#9989; Passed (' + quizResult.score + '/' + quizResult.total + ' - ' + quizResult.percent + '%)';
+      statusEl.style.color = 'var(--color-success)';
+    } else if (quizResult) {
+      statusEl.innerHTML = 'Last attempt: ' + quizResult.score + '/' + quizResult.total + ' (' + quizResult.percent + '%) - 90% needed';
+      statusEl.style.color = 'var(--color-accent)';
+    }
+
+    // Lock/unlock Stage 2
+    if (!quizPassed) {
+      stage2Card.classList.add('stage-locked');
+      var lockMsg = document.createElement('p');
+      lockMsg.className = 'stage-lock-msg';
+      lockMsg.innerHTML = '&#128274; Complete Stage 1 with 90% or higher to unlock';
+      stage2Links.parentNode.insertBefore(lockMsg, stage2Links);
+      var cards = stage2Links.querySelectorAll('.menu-card');
+      for (var i = 0; i < cards.length; i++) {
+        cards[i].classList.add('locked');
+        cards[i].addEventListener('click', function(e) {
+          e.preventDefault();
+        });
+      }
+    }
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Mastery for Teachers - Admin</title>
+  <link rel="stylesheet" href="css/styles.css?v=3">
+</head>
+<body class="inner-page">
+  <div class="container admin-container" style="padding-top:2rem;">
+    <h1 class="page-title">Admin Panel</h1>
+    <p class="page-subtitle">View registered emails and export data.</p>
+
+    <div id="adminContent"></div>
+  </div>
+
+  <script src="js/storage.js?v=3"></script>
+  <script src="js/auth.js?v=3"></script>
+  <script>
+    (function() {
+      var container = document.getElementById('adminContent');
+      var emails = StorageManager.getEmails();
+
+      var html = '';
+
+      // Stats
+      html += '<div class="admin-stat">';
+      html += '<div class="admin-stat__number">' + emails.length + '</div>';
+      html += '<div class="admin-stat__label">Registered Emails<br>(on this device)</div>';
+      html += '</div>';
+
+      // Buttons
+      html += '<div style="display:flex; gap:1rem; margin-bottom:2rem;">';
+      html += '<button class="btn-primary" id="downloadCSV">Download as CSV</button>';
+      html += '<button class="btn-secondary" id="clearData" style="border-color:#ff6b6b; color:#ff6b6b;">Clear All Local Data</button>';
+      html += '</div>';
+
+      // Firebase note
+      html += '<div class="callout callout--tip" style="margin-bottom:2rem;">';
+      html += '<div class="callout__label">Firebase Integration</div>';
+      html += '<div>To collect emails from all users across devices, set up Firebase Realtime Database and update the FIREBASE_URL in js/auth.js. The table below shows emails registered on this device only.</div>';
+      html += '</div>';
+
+      // Table
+      if (emails.length > 0) {
+        html += '<table class="admin-table">';
+        html += '<thead><tr><th>#</th><th>Email</th><th>Registered At</th></tr></thead>';
+        html += '<tbody>';
+        for (var i = 0; i < emails.length; i++) {
+          var d = new Date(emails[i].registeredAt);
+          html += '<tr>';
+          html += '<td>' + (i + 1) + '</td>';
+          html += '<td>' + emails[i].email + '</td>';
+          html += '<td>' + d.toLocaleDateString('en-GB') + ' ' + d.toLocaleTimeString('en-GB', {hour:'2-digit', minute:'2-digit'}) + '</td>';
+          html += '</tr>';
+        }
+        html += '</tbody></table>';
+      } else {
+        html += '<p class="text-muted text-center">No emails registered on this device yet.</p>';
+      }
+
+      container.innerHTML = html;
+
+      // Download CSV
+      document.getElementById('downloadCSV').addEventListener('click', function() {
+        var csv = StorageManager.exportEmailsCSV();
+        var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        var link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'ai-mastery-emails-' + new Date().toISOString().slice(0, 10) + '.csv';
+        link.click();
+        URL.revokeObjectURL(link.href);
+      });
+
+      // Clear data
+      document.getElementById('clearData').addEventListener('click', function() {
+        if (confirm('This will clear ALL local data including your login, challenge progress, and gallery submissions. This cannot be undone. Continue?')) {
+          localStorage.clear();
+          window.location.reload();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
