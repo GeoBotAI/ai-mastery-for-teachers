@@ -4,10 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Mastery for Teachers - Home</title>
-  <link rel="stylesheet" href="css/styles.css?v=3">
+  <link rel="stylesheet" href="css/styles.css?v=4">
 </head>
 <body class="inner-page">
   <div class="menu-container fade-in">
+    <!-- Welcome-back banner (shown by JS for returning users) -->
+    <div id="welcomeBackBanner" class="welcome-back-banner" style="display:none;">
+      <div class="welcome-back-banner__title">&#128075; Welcome back!</div>
+      <div class="welcome-back-banner__text" id="welcomeBackText"></div>
+    </div>
+
     <h1 class="menu-title">AI Mastery for Teachers</h1>
     <p class="menu-tagline">A challenge series for AI confidence and workflow mastery</p>
     <p class="menu-note">All activities can be undertaken using free accounts</p>
@@ -34,7 +40,7 @@
         <span class="stage-number">Stage 2</span>
         <h2 class="stage-card__title">AI Challenge Series</h2>
       </div>
-      <p class="stage-card__desc">9 progressive challenges across 3 phases taking you from creative AI partner to strategic workflow designer. Each challenge contains hands-on activities you can do individually, in pairs, or as a group.</p>
+      <p class="stage-card__desc">10 progressive challenges across 3 phases taking you from creative AI partner to strategic workflow designer. Each challenge contains hands-on activities you can do individually, in pairs, or as a group.</p>
       <div class="stage-card__links menu-grid" id="stage2Links">
         <a href="challenges.html" class="menu-card">
           <span class="menu-card__icon">&#127942;</span>
@@ -56,9 +62,9 @@
     </div>
   </div>
 
-  <script src="js/storage.js?v=3"></script>
-  <script src="js/auth.js?v=3"></script>
-  <script src="js/app.js?v=3"></script>
+  <script src="js/storage.js?v=4"></script>
+  <script src="js/auth.js?v=4"></script>
+  <script src="js/app.js?v=4"></script>
   <script>
   (function() {
     var quizPassed = StorageManager.isQuizPassed();
@@ -93,6 +99,31 @@
         cards[i].addEventListener('click', function(e) {
           e.preventDefault();
         });
+      }
+    }
+
+    // Welcome-back banner for returning users
+    var user = StorageManager.getUser();
+    if (user && user.registeredAt) {
+      var daysSinceReg = (Date.now() - new Date(user.registeredAt).getTime()) / (1000 * 60 * 60 * 24);
+      // Only show for users who registered more than 1 hour ago (not brand-new)
+      if (daysSinceReg > (1 / 24)) {
+        var banner = document.getElementById('welcomeBackBanner');
+        var bannerText = document.getElementById('welcomeBackText');
+        var order = StorageManager.CHALLENGE_ORDER;
+        var completedChallenges = 0;
+        for (var j = 0; j < order.length; j++) {
+          if (StorageManager.isChallengeComplete(order[j])) completedChallenges++;
+        }
+
+        if (!quizPassed) {
+          bannerText.textContent = 'You still need to pass the Stage 1 assessment to unlock the challenges. You can do it!';
+          banner.style.display = '';
+        } else if (completedChallenges < order.length) {
+          bannerText.textContent = 'You\'ve completed ' + completedChallenges + ' of ' + order.length + ' challenges. Keep going — you\'re making great progress!';
+          banner.style.display = '';
+        }
+        // If all complete, don't show banner — they're done!
       }
     }
   })();

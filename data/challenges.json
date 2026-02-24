@@ -36,7 +36,7 @@
               "mode": "pairs",
               "task": "Swap your unit plan with a partner. Each of you \"feeds\" the AI a school document (like a Knowledge Organiser) and asks it to re-sequence the 6 lessons to ensure coverage of the curriculum objectives. Then challenge each other's plans - ask the AI to find gaps, missing objectives, or assumptions that wouldn't work for specific student groups.",
               "why": "This teaches contextual prompting and keeps the AI grounded in your curriculum, for your school. Having a partner stress-test your plan mirrors real-life quality assurance and catches blind spots.",
-              "suggestedTools": [],
+              "suggestedTools": ["ChatGPT", "Claude", "Gemini", "Microsoft Copilot"],
               "proTips": [],
               "promptIdeas": [
                 "I have attached our school's Knowledge Organiser for this topic. Please adjust the lesson sequence so that Lesson 3 specifically focuses on the 'Tier 3 Vocabulary' listed in the document."
@@ -49,7 +49,7 @@
               "mode": "individual",
               "task": "Pick one lesson from your 6-lesson plan. Ask the AI to generate a detailed lesson plan for it. However, instead of typing, use the Microphone button on your phone or desktop to tell the AI exactly who your students are and what makes them tick, what they need, what works with them and what you want to ensure goes into your lesson.",
               "why": "A generic AI knows pedagogy, but you know your students and your lessons should be personalised to them. Speaking your thoughts allows you to capture exactly what you want in an easier and quicker way than typing often allows.",
-              "suggestedTools": [],
+              "suggestedTools": ["ChatGPT", "Claude", "Gemini", "Microsoft Copilot"],
               "proTips": [
                 "Ask for a \"Common Misconceptions\" section. Teachers love this because it helps them anticipate where students will struggle."
               ],
@@ -62,7 +62,7 @@
               "mode": "pairs",
               "task": "With your partner, co-build a \"Gem\" (in Google Gemini) that is \"pre-loaded\" with your subject's knowledge and your classes.",
               "why": "Instead of constantly prompting from scratch every time you begin, a custom Gem gets you closer to building a digital assistant that knows your style, your school, and your curriculum. In its knowledge base, add in the knowledge organiser you would like it to reference, a unit planner, a document about your class, your pedagogical approach and the way you like your lessons to flow. Be as specific as possible whilst ensuring to stay within GDPR and safeguarding guidelines. Building this together means you share the workload and create something the whole department can use.",
-              "suggestedTools": [],
+              "suggestedTools": ["Google Gemini"],
               "proTips": [],
               "promptIdeas": [],
               "howToDoIt": "1. Go to Google Gemini. On the left, see 'Gems'. 2. Click 'Create New'. In the 'Instructions' tab, write: \"You are an assistant for [Subject] teachers at [School Name]. Your role is to support a teacher to plan lessons, create resources and design assessments.\" Upload your department's marking policy, year-long curriculum map, and the knowledge organisers you are using. Mention that they are attached in the knowledge base within the instructions."
@@ -80,9 +80,9 @@
               "index": 1,
               "title": "The Hallucination Hunt",
               "mode": "individual",
-              "task": "Choose a niche topic within your subject. Ask an LLM to generate 10 \"facts\" about it. Then, manually verify each one using trusted sources. Label each fact as Confirmed, Partially Correct, or Hallucinated.",
+              "task": "Choose a niche topic within your subject. Ask an LLM (Large Language Model — an AI chatbot like ChatGPT, Claude, or Gemini) to generate 10 \"facts\" about it. Then, manually verify each one using trusted sources. Label each fact as Confirmed, Partially Correct, or Hallucinated.",
               "why": "LLMs can sound extremely convincing even when they are completely wrong. This activity trains your instinct for spotting plausible-sounding nonsense - the single most important skill for any teacher using AI.",
-              "suggestedTools": [],
+              "suggestedTools": ["ChatGPT", "Claude", "Gemini", "Microsoft Copilot"],
               "proTips": [
                 "Try a topic you know deeply. You'll be surprised how confidently the AI states things that are subtly wrong. The more niche the topic, the more likely the AI will hallucinate."
               ],
@@ -95,7 +95,7 @@
               "mode": "pairs",
               "task": "Take a lesson explanation or resource you generated in Challenge 1. Ask the AI to rewrite it for a specific student group (e.g., EAL learners, students with SEND, or a specific cultural context). Compare the two versions with your partner and audit them for assumptions, stereotypes, or missing nuance.",
               "why": "AI models are trained on internet data, which carries biases. If you don't check, those biases silently enter your resources. Two pairs of eyes are better than one for spotting what feels \"off.\"",
-              "suggestedTools": [],
+              "suggestedTools": ["ChatGPT", "Claude", "Gemini"],
               "proTips": [],
               "promptIdeas": [],
               "howToDoIt": null
@@ -106,7 +106,7 @@
               "mode": "group",
               "task": "As a group, create a reusable \"GDPR Script\" - a short, practical checklist that any teacher in your department can follow before pasting student-related information into an AI tool. It should cover: what must be anonymised, what should never be uploaded, and a quick process for replacing names with code names.",
               "why": "Data safety isn't just a legal requirement - it's the foundation that makes all the later challenges (especially data analysis) possible. Creating this as a group means everyone is aligned and accountable.",
-              "suggestedTools": [],
+              "suggestedTools": ["ChatGPT", "Claude", "Gemini"],
               "proTips": [],
               "promptIdeas": [
                 "Act as a data protection advisor for a UK primary/secondary school. Help me draft a simple one-page checklist that teachers can follow before using any AI tool with student-related data. Include GDPR considerations and practical anonymisation steps."
@@ -145,7 +145,7 @@
               "mode": "pairs",
               "task": "One partner uses Gemini Nano Banana Pro (select 'Create Images' and 'Thinking' in the model selector) or ChatGPT's image generator to turn a dense paragraph of text (from a website or a knowledge organiser) into a clear, accurate infographic-style image. The other partner then fact-checks it - are the visuals accurate? Has the AI introduced any errors, historical inaccuracies, or misleading representations?",
               "why": "Images combined with text are a lot more helpful and a lot more accessible as a learning support resource. But AI-generated visuals can contain subtle errors - especially in diagrams and infographics. Having a partner check builds a healthy verification habit.",
-              "suggestedTools": [],
+              "suggestedTools": ["Gemini Nano Banana Pro", "ChatGPT"],
               "proTips": [
                 "If the output shows incorrect text, check your model is set to 'Thinking' and decrease the amount of text for a simplified version."
               ],
@@ -176,7 +176,7 @@
               "mode": "pairs",
               "task": "Create a shared collection of AI-generated \"visual anchor\" images for your key Tier 3 vocabulary across a year group or department. Each word should be accompanied by a consistent-style image (e.g., \"watercolour illustration\" or \"flat vector icon\") and a short, clear definition.",
               "why": "This is essential for EAL and SEN support. Providing a bespoke visual cue along with the definition significantly aids retention. Building it as a shared bank means the whole department benefits and the style stays consistent across resources.",
-              "suggestedTools": [],
+              "suggestedTools": ["ChatGPT", "Gemini", "Adobe Firefly"],
               "proTips": [
                 "Create distinct, simple icon-style images for the vocabulary words (e.g., for biology: \"mitochondria,\" \"nucleus,\" etc.) Keep the style consistent and add a short clear meaning for each."
               ],
@@ -266,17 +266,17 @@
               "index": 3,
               "title": "The Coded Canvas",
               "mode": "pairs",
-              "task": "Use a coding-capable AI workspace to write the underlying code (like HTML/JS or Markdown) for a custom slideshow that meets your exact teaching requirements.",
-              "why": "Coding your own slides gives you unique interactive capabilities and bypasses the rigid templates of standard presentation software. The AI handles the complex coding; you simply describe what you want the slides to look like and do.",
+              "task": "Use an AI tool like ChatGPT, Claude (Artifacts), Canva Code, or Gemini to build a custom interactive slideshow that meets your exact teaching requirements. You describe what you want, and the AI builds it for you.",
+              "why": "Getting the AI to build your slides this way lets you add interactive features — like click-to-reveal answers, embedded timers, and drag-and-drop activities — that you simply cannot create in standard presentation software like PowerPoint. The AI handles all the technical work; you just describe what you want.",
               "suggestedTools": [
-                "ChatGPT (Canvas)",
+                "ChatGPT",
                 "Canva Code",
                 "Claude (Artifacts)",
                 "Gemini"
               ],
               "proTips": [],
               "promptIdeas": [],
-              "howToDoIt": "Ask the AI to \"Code a sleek, interactive HTML presentation about [Topic] and include all of your pedagogical approaches.\" Once generated, use the AI's built-in preview window to see your slides instantly, or copy the code into a free tool like Replit to run it on your classroom board."
+              "howToDoIt": "Ask the AI to \"Build me a sleek, interactive slideshow presentation about [Topic] and include all of my pedagogical approaches.\" Once created, use the AI's built-in preview window to see your slides instantly. You can also copy what it made into a free tool like Replit to get a shareable web link you can open on your classroom board."
             },
             {
               "index": 4,
@@ -333,7 +333,7 @@
               "mode": "pairs",
               "task": "Identify a specific need (e.g., \"Scaffolds for Dyscalculia\" or \"Visual Timetables for Autistic learners\"). Use Deep Research to find freely available and recognised resources or toolkits. Before accepting anything, each partner independently verifies at least 2 key claims from the AI's output using trusted sources. Compare what you found.",
               "why": "Teachers often spend hours hunting for quality SEND materials. This activity proves AI can curate a high-quality \"shortlist\" of verified websites and PDF downloads in seconds - but also builds the habit of checking before trusting.",
-              "suggestedTools": [],
+              "suggestedTools": ["Gemini Deep Research", "ChatGPT Deep Research", "Perplexity AI"],
               "proTips": [
                 "Tell the AI to: \"Only include resources from reputable organizations like the British Dyslexia Association, NASEN, or government-approved education hubs.\" Check with your SENCO to see how well it did."
               ],
@@ -346,7 +346,7 @@
               "mode": "group",
               "task": "Upload an existing Knowledge Organiser (or paste the text). Ask the Deep Research tool to check for any outdated facts, missing key concepts, or \"new-to-the-field\" discoveries that should be included. As a group, compile the verified findings into a SEND-friendly resource pack that the department can use.",
               "why": "Science, History, and Geography are constantly evolving. This ensures your curriculum remains cutting-edge and accurate - and the group format means the workload is shared and the output is immediately useful.",
-              "suggestedTools": [],
+              "suggestedTools": ["Gemini Deep Research", "ChatGPT Deep Research", "Perplexity AI"],
               "proTips": [],
               "promptIdeas": [],
               "howToDoIt": "1. Upload your document. 2. The Prompt: \"Analyse this Knowledge Organiser on [Topic]. Conduct deep research to see if any of these facts have been updated by recent discoveries (e.g., new archaeological finds or NASA data). Suggest 3 'Stretch and Challenge' facts that are currently missing.\""
@@ -385,7 +385,7 @@
               "mode": "individual",
               "task": "Navigate to the \"Notebook Guide\" and click \"Generate\" on the Audio Overview.",
               "why": "This creates a high-quality, two-person \"Deep Dive\" podcast discussion about your specific documents. It's perfect for teachers to listen to during their commute. 2026 Bonus: You can now click \"Join\" (Interactive Mode) to interrupt the hosts and ask them to explain a specific point!",
-              "suggestedTools": [],
+              "suggestedTools": ["NotebookLM"],
               "proTips": [],
               "promptIdeas": [],
               "howToDoIt": null
@@ -396,7 +396,7 @@
               "mode": "group",
               "task": "Use the \"Studio\" panel on the right to generate three instant resources: A Study Guide (includes an outline, quiz, and glossary), an FAQ (the most likely questions parents or staff will ask), and a Mind Map (a visual breakdown of how all the uploaded documents connect).",
               "why": "This turns \"input\" (reading) into \"output\" (CPD or teaching resources) with zero extra effort, grounded in expertise.",
-              "suggestedTools": [],
+              "suggestedTools": ["NotebookLM"],
               "proTips": [
                 "Try all of the options in \"Studio\" and see what works for you. This tool is 13+."
               ],
@@ -418,7 +418,7 @@
               "mode": "individual",
               "task": "Take an Excel sheet or table of results. Anonymise it using code names. Then, upload the file into your chosen AI (ChatGPT, Gemini, or NotebookLM).",
               "why": "This ensures you are GDPR-compliant while still getting the benefits of deep analysis.",
-              "suggestedTools": [],
+              "suggestedTools": ["ChatGPT", "Gemini", "NotebookLM"],
               "proTips": [
                 "\"I am going to provide you with a table of results. Analyze the text provided and give me the trends within the cohort.\""
               ],
@@ -431,7 +431,7 @@
               "mode": "pairs",
               "task": "Ask the AI to identify the top strengths and top areas of improvement for the whole cohort, then tell it to split the class into flexible working groups based on their specific gaps. Compare the AI's groupings with your own professional judgment. Discuss the discrepancies with your partner.",
               "why": "AI can spot specific data trends and suggest what we might be missing in class. But data alone doesn't know that two students can't sit together, or that one learner's low score was due to absence. The conversation between AI insight and teacher judgment is where the real value lies.",
-              "suggestedTools": [],
+              "suggestedTools": ["ChatGPT", "Gemini", "NotebookLM"],
               "proTips": [],
               "promptIdeas": [
                 "Looking at these results, where are the strongest areas of success and challenge? Are there any 'outlier' students who performed significantly differently than the average? Based on the gaps you found, split the class into flexible working groups and create a specific 10-minute 'Booster Activity' for each group."
@@ -444,7 +444,7 @@
               "mode": "group",
               "task": "Upload a marking rubric alongside anonymised student work. Ask the AI to draft personalised written feedback for each student based on the rubric. As a group, review the AI's drafts, edit them for accuracy and warmth, and discuss where the AI got it right and where the feedback needed a human touch.",
               "why": "Marking and feedback is one of the most time-consuming parts of teaching. AI can handle the \"first draft\" of feedback, freeing you to focus on personalising and refining it.",
-              "suggestedTools": [],
+              "suggestedTools": ["ChatGPT", "Claude", "Gemini"],
               "proTips": [],
               "promptIdeas": [],
               "howToDoIt": "\"Here is a marking rubric for [Subject/Task]. Here are the anonymised results for 10 students. For each student, draft 2-3 sentences of specific, actionable feedback based on their performance against the rubric. Be encouraging but honest.\""
@@ -469,15 +469,15 @@
               "index": 1,
               "title": "The Spec Writer",
               "mode": "pairs",
-              "task": "One partner writes the plain English description of an interactive quiz (what it should do, how it should look, what content it covers). The other partner acts as the \"QA Tester\" - they paste the description into the AI, run the generated code, and find any bugs or missing features. Swap roles and repeat. The quiz should have 5 multiple-choice questions, a progress bar, and a \"Score Summary\" at the end.",
+              "task": "One partner writes the plain English description of an interactive quiz (what it should do, how it should look, what content it covers). The other partner acts as the \"testing partner\" - they paste the description into the AI, run the generated code, and find any bugs or missing features. Swap roles and repeat. The quiz should have 5 multiple-choice questions, a progress bar, and a \"Score Summary\" at the end.",
               "why": "Standard quizzes are linear. A coded quiz can give quick and engaging ways of assessing learning. Writing a clear \"spec\" is the most important skill in code generation.",
               "suggestedTools": [
-                "ChatGPT Canvas",
+                "ChatGPT",
                 "Claude Artifacts"
               ],
               "proTips": [],
               "promptIdeas": [
-                "Create a sleek, interactive multiple-choice quiz about the Periodic Table. Use bright colours, reveal the answer after every question, add a 'Next' button, and make sure it works as a single HTML file."
+                "Create a sleek, interactive multiple-choice quiz about the Periodic Table. Use bright colours, reveal the answer after every question, add a 'Next' button, and make sure it works as a single file you can open in a web browser."
               ],
               "howToDoIt": null
             },
@@ -487,7 +487,7 @@
               "mode": "pairs",
               "task": "Build a set of digital flashcards together. When clicked, the \"card\" should flip over with a smooth 3D animation to reveal the definition or answer.",
               "why": "This is a powerful \"Dual Coding\" tool. You can display this on the board for a whole-class retrieval session.",
-              "suggestedTools": [],
+              "suggestedTools": ["ChatGPT", "Claude (Artifacts)", "Gemini Canvas"],
               "proTips": [
                 "\"Make the flashcards look like physical cards. Add a 'Shuffle' button at the bottom so we can play multiple rounds.\""
               ],
@@ -500,10 +500,10 @@
               "mode": "group",
               "task": "As a group, build a standardised suite of 3 interactive games for a specific unit. For example: \"Catch the Prime Numbers\" (numbers fall from the top; click only the primes), \"Sort the Sentence\" (drag and drop words into correct order), or a \"Matching Pairs\" memory game with Tier 3 vocabulary. Agree on a consistent design style.",
               "why": "Gamification is both a great \"Hook\" and an engagement tool. Having a game that uses your exact concepts and vocabulary makes the learning bespoke.",
-              "suggestedTools": [],
+              "suggestedTools": ["ChatGPT", "Claude (Artifacts)", "Canva Code"],
               "proTips": [],
               "promptIdeas": [],
-              "howToDoIt": "How to Display Your Code:\nOption A: The \"One-Click Preview\" (Fastest) - Most modern AI tools have a \"Preview\" or \"Run\" button. Click \"Preview,\" then hit \"Open in New Tab\" or \"Fullscreen.\"\nOption B: The \"Replit\" Method (Best for Saving) - Copy the code. Go to Replit.com (Free). Click \"Create Repl,\" select \"HTML/CSS/JS,\" paste your code. Hit \"Run.\" It gives you a short URL."
+              "howToDoIt": "How to Display What You Build:\nOption A: The \"One-Click Preview\" (Fastest) - Most modern AI tools have a \"Preview\" or \"Run\" button. Click it, then hit \"Open in New Tab\" or \"Fullscreen\" to see your game in action.\nOption B: The \"Replit\" Method (Best for Saving and Sharing) - Copy what the AI created. Go to Replit.com (Free). Click \"Create Repl,\" choose a web project, paste it in, and hit \"Run.\" It gives you a short web link you can share with students."
             }
           ]
         },
@@ -520,7 +520,7 @@
               "mode": "group",
               "task": "Work through the 5 workflow phases:\nPhase 1 - Define \"Success Criteria.\" What will you measure? Time saving? Teacher confidence? Pupil Achievement?\nPhase 2 - Map out all stages. Allocate human and AI roles. Map on paper first and discuss.\nPhase 3 - Set AI on tasks that don't need supervision while you undertake other tasks. Review and edit AI output.\nPhase 4 - Run the workflow in a real-world setting. Make notes on what went well and what to change.\nPhase 5 - Return to the group to review the workflow and discuss impact.",
               "why": "This is the capstone activity that brings together everything learned across all challenges into a practical, real-world application.",
-              "suggestedTools": [],
+              "suggestedTools": ["ChatGPT", "Claude", "Gemini", "NotebookLM"],
               "proTips": [],
               "promptIdeas": [],
               "howToDoIt": null
@@ -531,7 +531,7 @@
               "mode": "group",
               "task": "Create a 1-page map showing where AI is used in the department's weekly cycle and where it is deliberately not used. Be explicit about the boundaries.",
               "why": "This becomes your team's shared understanding of where AI helps and where human judgment must lead.",
-              "suggestedTools": [],
+              "suggestedTools": ["ChatGPT", "Claude", "Gemini"],
               "proTips": [],
               "promptIdeas": [],
               "howToDoIt": null
@@ -542,7 +542,7 @@
               "mode": "group",
               "task": "Produce a final \"Department AI Policy\" checklist - a practical, one-page document covering: when to use AI, when not to, how to verify output, how to handle data safely, and how to be transparent with students and parents about AI use.",
               "why": "This creates a lasting, reusable resource that codifies everything learned throughout the challenge series.",
-              "suggestedTools": [],
+              "suggestedTools": ["ChatGPT", "Claude", "Gemini"],
               "proTips": [],
               "promptIdeas": [],
               "howToDoIt": null

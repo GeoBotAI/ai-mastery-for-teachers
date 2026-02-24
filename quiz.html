@@ -4,28 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Mastery for Teachers - AI Foundations Assessment</title>
-  <link rel="stylesheet" href="css/styles.css?v=3">
+  <link rel="stylesheet" href="css/styles.css?v=4">
 </head>
 <body class="inner-page">
   <div class="container">
     <!-- Intro Screen -->
     <div id="quizIntro" class="quiz-intro fade-in">
-      <h1 class="page-title" style="margin-top:1.5rem;">Stage 1: AI Foundations Assessment</h1>
+      <h1 class="page-title page-title--spaced">Stage 1: AI Foundations Assessment</h1>
       <p class="page-subtitle">Before engaging with the AI Challenge Series, complete this assessment to demonstrate your understanding of safe, responsible, and effective AI use in education.</p>
 
       <div class="quiz-info-card">
-        <h3 style="color:var(--color-title); margin-bottom:0.8rem;">About this Assessment</h3>
-        <ul style="list-style:none; padding:0; line-height:2;">
+        <h3 class="quiz-info-card__heading">About this Assessment</h3>
+        <ul class="quiz-info-list">
           <li>&#128221; <strong>30 multiple-choice questions</strong> across 6 sections</li>
           <li>&#127919; <strong>Scenario-based questions</strong> assessing understanding, readiness &amp; safe use</li>
           <li>&#9989; <strong>90% required to pass</strong> (27 out of 30 correct)</li>
           <li>&#128272; Passing unlocks <strong>Stage 2: AI Challenge Series</strong></li>
           <li>&#127891; You will receive a <strong>Certificate of Achievement</strong> on passing</li>
         </ul>
-        <p style="margin-top:1rem; font-size:0.9rem; color:var(--color-text-muted);">This assessment aligns with the <a href="https://www.gov.uk/government/collections/using-ai-in-education-settings-support-materials" target="_blank" rel="noopener" style="color:var(--color-accent);">Department for Education guidance</a> on using AI in education settings.</p>
+        <p class="quiz-info-footer">This assessment aligns with the <a href="https://www.gov.uk/government/collections/using-ai-in-education-settings-support-materials" target="_blank" rel="noopener" style="color:var(--color-accent);">Department for Education guidance</a> on using AI in education settings.</p>
       </div>
 
-      <button class="btn-primary" id="startQuizBtn" style="margin-top:1.5rem; font-size:1.1rem; padding:0.9rem 2.5rem;">Begin Assessment</button>
+      <button class="btn-primary btn-primary--quiz-start" id="startQuizBtn">Begin Assessment</button>
     </div>
 
     <!-- Quiz Questions -->
@@ -52,9 +52,10 @@
     </div>
   </div>
 
-  <script src="js/storage.js?v=3"></script>
-  <script src="js/auth.js?v=3"></script>
-  <script src="js/app.js?v=3"></script>
+  <script src="js/storage.js?v=4"></script>
+  <script src="js/auth.js?v=4"></script>
+  <script src="js/app.js?v=4"></script>
+  <script src="js/certificate.js?v=4"></script>
   <script>
   (function() {
     var quizData = null;
@@ -69,7 +70,6 @@
         .then(function(res) { return res.json(); })
         .then(function(data) {
           quizData = data;
-          // Flatten questions with section info
           allQuestions = [];
           for (var s = 0; s < data.sections.length; s++) {
             var sec = data.sections[s];
@@ -121,13 +121,11 @@
       document.getElementById('feedbackArea').style.display = 'none';
       document.getElementById('nextBtn').style.display = 'none';
 
-      // Attach click handlers
       var btns = document.querySelectorAll('.option-btn');
       for (var b = 0; b < btns.length; b++) {
         btns[b].addEventListener('click', handleOptionClick);
       }
 
-      // Re-trigger animation
       var card = document.getElementById('questionCard');
       card.classList.remove('fade-in');
       void card.offsetWidth;
@@ -146,7 +144,6 @@
       if (isCorrect) score++;
       answers.push({ questionId: q.id, selected: selected, correct: q.correct, isCorrect: isCorrect });
 
-      // Highlight buttons
       var allBtns = document.querySelectorAll('.option-btn');
       for (var i = 0; i < allBtns.length; i++) {
         var b = allBtns[i];
@@ -159,7 +156,6 @@
         }
       }
 
-      // Show feedback
       var fb = document.getElementById('feedbackArea');
       fb.style.display = 'block';
       fb.className = 'feedback-area ' + (isCorrect ? 'feedback-correct' : 'feedback-incorrect');
@@ -176,7 +172,6 @@
       var percent = Math.round((score / allQuestions.length) * 100);
       var passed = percent >= 90;
 
-      // Save result
       StorageManager.setQuizResult({
         score: score,
         total: allQuestions.length,
@@ -188,94 +183,53 @@
       var html = '';
       if (passed) {
         html += '<div class="quiz-result-card quiz-result-pass">';
-        html += '<h1 style="color:var(--color-title); margin-bottom:0.5rem;">&#127881; Congratulations!</h1>';
-        html += '<p style="font-size:1.3rem; margin-bottom:0.5rem;">You scored <strong>' + score + ' out of ' + allQuestions.length + '</strong> (' + percent + '%)</p>';
-        html += '<p style="margin-bottom:1.5rem;">You have demonstrated a strong understanding of safe, responsible, and effective AI use in education.</p>';
+        html += '<h1 class="quiz-result__heading">&#127881; Congratulations!</h1>';
+        html += '<p class="quiz-result__score">You scored <strong>' + score + ' out of ' + allQuestions.length + '</strong> (' + percent + '%)</p>';
+        html += '<p class="quiz-result__desc">You have demonstrated a strong understanding of safe, responsible, and effective AI use in education.</p>';
         html += '<div class="certificate-form">';
-        html += '<p style="margin-bottom:0.8rem; color:var(--color-title);"><strong>Enter your name to generate your certificate:</strong></p>';
+        html += '<p class="quiz-result__cert-prompt"><strong>Enter your name to generate your certificate:</strong></p>';
         html += '<input type="text" id="certName" placeholder="Your full name" class="auth-input" style="margin-bottom:1rem;">';
         html += '<button class="btn-primary" id="generateCertBtn">Generate Certificate</button>';
         html += '</div>';
-        html += '<div id="certificateArea" style="display:none; margin-top:1.5rem;"></div>';
-        html += '<a href="menu.html" class="btn-primary" style="display:inline-block; margin-top:1.5rem; background:var(--color-success);">Continue to Menu &#8594;</a>';
+        html += '<div id="certificateArea" class="quiz-result__cert-area"></div>';
+        html += '<a href="menu.html" class="btn-primary btn-primary--success">Continue to Menu &#8594;</a>';
         html += '</div>';
       } else {
         html += '<div class="quiz-result-card quiz-result-fail">';
-        html += '<h1 style="color:var(--color-accent); margin-bottom:0.5rem;">Not Quite There Yet</h1>';
-        html += '<p style="font-size:1.3rem; margin-bottom:0.5rem;">You scored <strong>' + score + ' out of ' + allQuestions.length + '</strong> (' + percent + '%)</p>';
-        html += '<p style="margin-bottom:1rem;">You need <strong>90% (27/30)</strong> to pass. Don\'t worry - review the <a href="https://www.gov.uk/government/collections/using-ai-in-education-settings-support-materials" target="_blank" rel="noopener" style="color:var(--color-accent);">DfE guidance</a> and try again.</p>';
-        html += '<h3 style="color:var(--color-title); margin-bottom:0.8rem;">Review Your Answers:</h3>';
+        html += '<h1 class="quiz-result__heading--fail">Not Quite There Yet</h1>';
+        html += '<p class="quiz-result__score">You scored <strong>' + score + ' out of ' + allQuestions.length + '</strong> (' + percent + '%)</p>';
+        html += '<p class="quiz-result__desc">You need <strong>90% (27/30)</strong> to pass. Don\'t worry - review the <a href="https://www.gov.uk/government/collections/using-ai-in-education-settings-support-materials" target="_blank" rel="noopener" style="color:var(--color-accent);">DfE guidance</a> and try again.</p>';
+        html += '<h3 class="quiz-result__cert-prompt">Review Your Answers:</h3>';
 
-        // Show incorrect answers
         for (var i = 0; i < answers.length; i++) {
           if (!answers[i].isCorrect) {
             var q = allQuestions[i];
             html += '<div class="review-item">';
             html += '<p><strong>Q' + (i + 1) + ':</strong> ' + escapeHtml(q.scenario.substring(0, 100)) + '...</p>';
-            html += '<p style="color:#ff6b6b;">Your answer: ' + answers[i].selected + ' | Correct: ' + q.correct + '</p>';
-            html += '<p style="font-size:0.85rem; color:var(--color-text-muted);">' + escapeHtml(q.rationale) + '</p>';
+            html += '<p class="quiz-review__wrong">Your answer: ' + answers[i].selected + ' | Correct: ' + q.correct + '</p>';
+            html += '<p class="quiz-review__rationale">' + escapeHtml(q.rationale) + '</p>';
             html += '</div>';
           }
         }
 
-        html += '<button class="btn-primary" style="margin-top:1.5rem;" id="retryBtn">Try Again</button>';
+        html += '<button class="btn-primary btn-primary--retry" id="retryBtn">Try Again</button>';
         html += '</div>';
       }
 
       resultsDiv.innerHTML = html;
 
-      // Attach handlers
       if (passed) {
-        document.getElementById('generateCertBtn').addEventListener('click', generateCertificate);
+        document.getElementById('generateCertBtn').addEventListener('click', function() {
+          var name = document.getElementById('certName').value.trim();
+          if (!name) { alert('Please enter your name.'); return; }
+          CertificateGenerator.generate(name, 'certificateArea');
+        });
       } else {
         document.getElementById('retryBtn').addEventListener('click', function() {
           resultsDiv.style.display = 'none';
           document.getElementById('quizIntro').style.display = 'block';
         });
       }
-    }
-
-    function generateCertificate() {
-      var name = document.getElementById('certName').value.trim();
-      if (!name) {
-        alert('Please enter your name.');
-        return;
-      }
-
-      var certArea = document.getElementById('certificateArea');
-      certArea.style.display = 'block';
-
-      // Draw certificate on canvas
-      var canvas = document.createElement('canvas');
-      var img = new Image();
-      img.crossOrigin = 'anonymous';
-      img.onload = function() {
-        canvas.width = img.width;
-        canvas.height = img.height;
-        var ctx = canvas.getContext('2d');
-        ctx.drawImage(img, 0, 0);
-
-        // Draw name on certificate
-        ctx.font = 'bold 216px Poppins, sans-serif';
-        ctx.fillStyle = '#000000';
-        ctx.textAlign = 'center';
-        ctx.fillText(name, canvas.width / 2, canvas.height * 0.52);
-
-        // Draw date
-        var today = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
-        ctx.font = '36px Inter, sans-serif';
-        ctx.fillStyle = '#FFFFFF';
-        ctx.fillText(today, canvas.width / 2, canvas.height * 0.72);
-
-        var dataUrl = canvas.toDataURL('image/jpeg', 0.95);
-
-        certArea.innerHTML = '<img src="' + dataUrl + '" alt="Certificate of Achievement" style="width:100%; max-width:700px; border-radius:8px; border:2px solid var(--color-accent);">' +
-          '<br><a download="AI_Foundations_Certificate.jpg" href="' + dataUrl + '" class="btn-primary" style="display:inline-block; margin-top:1rem;">&#128229; Download Certificate</a>';
-      };
-      img.onerror = function() {
-        certArea.innerHTML = '<p style="color:var(--color-accent);">Certificate template could not be loaded. Your result has been saved.</p>';
-      };
-      img.src = 'images/certificate-template.jpg';
     }
 
     function escapeHtml(text) {
@@ -290,11 +244,12 @@
     // Check if already passed
     if (StorageManager.isQuizPassed()) {
       var intro = document.getElementById('quizIntro');
-      intro.innerHTML = '<h1 class="page-title" style="margin-top:1.5rem;">Stage 1: AI Foundations Assessment</h1>' +
+      var qr = StorageManager.getQuizResult();
+      intro.innerHTML = '<h1 class="page-title page-title--spaced">Stage 1: AI Foundations Assessment</h1>' +
         '<div class="quiz-info-card" style="text-align:center;">' +
-        '<h3 style="color:var(--color-success); margin-bottom:0.8rem;">&#9989; Assessment Passed!</h3>' +
+        '<h3 class="quiz-result__heading" style="color:var(--color-success);">&#9989; Assessment Passed!</h3>' +
         '<p>You have already completed the AI Foundations Assessment.</p>' +
-        '<p style="margin-top:0.5rem;">Score: <strong>' + StorageManager.getQuizResult().score + '/' + StorageManager.getQuizResult().total + '</strong> (' + StorageManager.getQuizResult().percent + '%)</p>' +
+        '<p style="margin-top:0.5rem;">Score: <strong>' + qr.score + '/' + qr.total + '</strong> (' + qr.percent + '%)</p>' +
         '<a href="menu.html" class="btn-primary" style="display:inline-block; margin-top:1.5rem;">Back to Menu</a>' +
         '<br><button class="btn-primary" style="margin-top:0.8rem; background:var(--color-surface-hover); border:1px solid var(--color-accent);" id="retakeBtn">Retake Assessment</button>' +
         '</div>';

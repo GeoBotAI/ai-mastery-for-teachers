@@ -19,11 +19,12 @@ var App = (function() {
     nav.className = 'main-nav';
 
     var links = [
+      { href: 'dashboard.html', label: 'My Learning', page: 'dashboard' },
       { href: 'quiz.html', label: 'Assessment', page: 'quiz' },
       { href: 'challenges.html', label: 'Challenges', page: 'challenges' },
       { href: 'gallery.html', label: 'Gallery', page: 'gallery' },
-      { href: 'tools.html', label: 'Tool Directory', page: 'tools' },
-      { href: 'prompts.html', label: 'Prompt Engineering', page: 'prompts' }
+      { href: 'tools.html', label: 'Tools', page: 'tools' },
+      { href: 'prompts.html', label: 'Prompts', page: 'prompts' }
     ];
 
     var linksHtml = links.map(function(link) {

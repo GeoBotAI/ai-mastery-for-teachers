@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Mastery for Teachers - My Learning</title>
+  <link rel="stylesheet" href="css/styles.css?v=4">
+</head>
+<body class="inner-page">
+  <div class="container">
+    <h1 class="page-title page-title--spaced">My Learning</h1>
+    <p class="page-subtitle">Your progress at a glance.</p>
+
+    <div id="dashboardContent">
+      <!-- Filled by JS -->
+    </div>
+  </div>
+
+  <script src="js/storage.js?v=4"></script>
+  <script src="js/auth.js?v=4"></script>
+  <script src="js/app.js?v=4"></script>
+  <script src="js/certificate.js?v=4"></script>
+  <script>
+  (function() {
+    var content = document.getElementById('dashboardContent');
+
+    // --- User Info ---
+    var user = StorageManager.getUser();
+    var regDate = user && user.registeredAt
+      ? new Date(user.registeredAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
+      : 'Unknown';
+
+    // --- Overall Stats ---
+    var order = StorageManager.CHALLENGE_ORDER;
+    var totalActivities = 0;
+    var completedActivities = 0;
+    var completedChallenges = 0;
+
+    for (var i = 0; i < order.length; i++) {
+      var id = order[i];
+      totalActivities += StorageManager.getTotalActivities(id);
+      completedActivities += StorageManager.getCompletedCount(id);
+      if (StorageManager.isChallengeComplete(id)) completedChallenges++;
+    }
+
+    var overallPercent = totalActivities > 0 ? Math.round((completedActivities / totalActivities) * 100) : 0;
+
+    // --- Quiz ---
+    var quizResult = StorageManager.getQuizResult();
+    var quizPassed = StorageManager.isQuizPassed();
+
+    // --- Gallery ---
+    var galleryCount = StorageManager.getGallery().length;
+
+    // --- Build HTML ---
+    var html = '';
+
+    // Profile section
+    html += '<div class="dashboard-section">';
+    html += '<div class="dashboard-user-info">';
+    html += '<div class="dashboard-user-info__avatar">&#128100;</div>';
+    html += '<div class="dashboard-user-info__details">';
+    html += '<div class="dashboard-user-info__email">' + (user ? user.email : 'Not registered') + '</div>';
+    html += '<div class="dashboard-user-info__date">Registered: ' + regDate + '</div>';
+    html += '</div>';
+    html += '</div>';
+    html += '</div>';
+
+    // Stats row
+    html += '<div class="dashboard-section">';
+    html += '<div class="dashboard-section__title">Overview</div>';
+    html += '<div class="dashboard-stat-row">';
+    html += '<div class="dashboard-stat"><div class="dashboard-stat__number">' + overallPercent + '%</div><div class="dashboard-stat__label">Overall Progress</div></div>';
+    html += '<div class="dashboard-stat"><div class="dashboard-stat__number">' + completedChallenges + '/' + order.length + '</div><div class="dashboard-stat__label">Challenges Complete</div></div>';
+    html += '<div class="dashboard-stat"><div class="dashboard-stat__number">' + completedActivities + '/' + totalActivities + '</div><div class="dashboard-stat__label">Activities Done</div></div>';
+    html += '<div class="dashboard-stat"><div class="dashboard-stat__number">' + galleryCount + '</div><div class="dashboard-stat__label">Gallery Submissions</div></div>';
+    html += '</div>';
+    html += '<div class="progress-bar progress-bar--large" style="margin-top:1rem;"><div class="progress-bar__fill" style="width:' + overallPercent + '%;"></div></div>';
+    html += '</div>';
+
+    // Assessment section
+    html += '<div class="dashboard-section">';
+    html += '<div class="dashboard-section__title">Stage 1: AI Foundations Assessment</div>';
+    if (!quizResult) {
+      html += '<p>You have not attempted the assessment yet.</p>';
+      html += '<a href="quiz.html" class="btn-primary" style="margin-top:0.8rem; display:inline-block;">Start Assessment</a>';
+    } else if (quizPassed) {
+      html += '<p>&#9989; <strong style="color:var(--color-success);">Passed</strong> &mdash; ' + quizResult.score + '/' + quizResult.total + ' (' + quizResult.percent + '%)</p>';
+      var certDate = new Date(quizResult.completedAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+      html += '<p style="font-size:0.85rem; color:var(--color-text-muted);">Completed: ' + certDate + '</p>';
+      html += '<div style="margin-top:1rem;">';
+      html += '<p class="quiz-result__cert-prompt"><strong>Generate your certificate:</strong></p>';
+      html += '<input type="text" id="dashCertName" placeholder="Your full name" class="auth-input" style="margin-bottom:0.8rem;">';
+      html += '<button class="btn-primary" id="dashCertBtn">Generate Certificate</button>';
+      html += '</div>';
+      html += '<div id="dashCertArea" class="dashboard-cert-area" style="display:none; margin-top:1rem;"></div>';
+      html += '<div style="margin-top:0.8rem;"><a href="quiz.html" style="color:var(--color-accent); font-size:0.85rem;">Retake Assessment</a></div>';
+    } else {
+      html += '<p>&#10060; <strong style="color:var(--color-accent);">Not passed</strong> &mdash; ' + quizResult.score + '/' + quizResult.total + ' (' + quizResult.percent + '%). You need 90% to pass.</p>';
+      html += '<a href="quiz.html" class="btn-primary" style="margin-top:0.8rem; display:inline-block;">Retake Assessment</a>';
+    }
+    html += '</div>';
+
+    // Challenge progress section
+    html += '<div class="dashboard-section">';
+    html += '<div class="dashboard-section__title">Stage 2: AI Challenge Series</div>';
+
+    // Load challenge titles from JSON
+    html += '<div id="challengeRows">Loading challenges...</div>';
+    html += '</div>';
+
+    content.innerHTML = html;
+
+    // Certificate button handler
+    if (quizPassed) {
+      document.getElementById('dashCertBtn').addEventListener('click', function() {
+        var name = document.getElementById('dashCertName').value.trim();
+        if (!name) { alert('Please enter your name.'); return; }
+        CertificateGenerator.generate(name, 'dashCertArea');
+      });
+    }
+
+    // Load challenge data for the progress rows
+    fetch('data/challenges.json?v=4')
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        var challenges = [];
+        for (var p = 0; p < data.phases.length; p++) {
+          var phase = data.phases[p];
+          for (var c = 0; c < phase.challenges.length; c++) {
+            challenges.push(phase.challenges[c]);
+          }
+        }
+
+        var rowsHtml = '';
+        for (var i = 0; i < challenges.length; i++) {
+          var ch = challenges[i];
+          var isComplete = StorageManager.isChallengeComplete(ch.id);
+          var isUnlocked = StorageManager.isChallengeUnlocked(ch.id);
+          var completed = StorageManager.getCompletedCount(ch.id);
+          var total = StorageManager.getTotalActivities(ch.id);
+          var pct = total > 0 ? Math.round((completed / total) * 100) : 0;
+
+          var icon = '&#128274;'; // locked
+          if (isComplete) icon = '&#9989;'; // complete
+          else if (isUnlocked) icon = '&#128260;'; // in progress
+
+          rowsHtml += '<div class="dashboard-challenge-row">';
+          rowsHtml += '<div class="dashboard-challenge-row__number">' + ch.number + '</div>';
+          rowsHtml += '<div class="dashboard-challenge-row__title"><a href="challenge.html?id=' + ch.id + '">' + ch.title + '</a></div>';
+          rowsHtml += '<div class="dashboard-challenge-row__bar"><div class="progress-bar"><div class="progress-bar__fill" style="width:' + pct + '%;"></div></div></div>';
+          rowsHtml += '<div class="dashboard-challenge-row__icon">' + icon + '</div>';
+          rowsHtml += '</div>';
+        }
+
+        document.getElementById('challengeRows').innerHTML = rowsHtml;
+      })
+      .catch(function(err) {
+        document.getElementById('challengeRows').innerHTML = '<p>Could not load challenge data.</p>';
+      });
+  })();
+  </script>
+</body>
+</html>
