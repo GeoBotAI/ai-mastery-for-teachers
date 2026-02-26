@@ -4,42 +4,164 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Mastery for Teachers - Login</title>
-  <link rel="stylesheet" href="css/styles.css?v=4">
+  <link rel="stylesheet" href="css/styles.css?v=5">
 </head>
 <body class="inner-page">
   <div class="auth-container fade-in">
     <h1 class="page-title" style="font-size:1.6rem; margin-bottom:0.3rem;">AI Mastery for Teachers</h1>
-    <p class="auth-subtitle">Enter your email to begin your AI journey</p>
-    <form id="loginForm" class="auth-form">
+    <p class="auth-subtitle">Your AI confidence journey starts here</p>
+
+    <!-- Tab toggle: Login / Register -->
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="loginTab">Login</button>
+      <button class="auth-tab" id="registerTab">Register</button>
+    </div>
+
+    <form id="authForm" class="auth-form">
       <input type="email" id="emailInput" placeholder="your.email@school.edu" required autocomplete="email" class="auth-input">
-      <p id="errorMsg" style="color:#ff6b6b; font-size:0.85rem; display:none;"></p>
-      <button type="submit" class="btn-primary">Get Started</button>
+      <input type="password" id="passwordInput" placeholder="Password (min 6 characters)" required autocomplete="current-password" class="auth-input" minlength="6">
+      <p id="errorMsg" class="auth-message auth-message--error" style="display:none;"></p>
+      <p id="successMsg" class="auth-message auth-message--success" style="display:none;"></p>
+      <button type="submit" class="btn-primary" id="authBtn">Login</button>
     </form>
+
+    <div class="auth-links">
+      <a href="#" id="forgotLink">Forgot password?</a>
+    </div>
   </div>
 
-  <script src="js/storage.js?v=4"></script>
-  <script src="js/auth.js?v=4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="js/supabase-client.js?v=5"></script>
+  <script src="js/storage.js?v=5"></script>
+  <script src="js/supabase-sync.js?v=5"></script>
+  <script src="js/auth.js?v=5"></script>
   <script>
-    // If already logged in, go to menu
-    if (StorageManager.isLoggedIn()) {
-      window.location.href = 'menu.html';
-    }
-
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      var email = document.getElementById('emailInput').value.trim();
-      var errorMsg = document.getElementById('errorMsg');
-
-      if (!Auth.isValidEmail(email)) {
-        errorMsg.textContent = 'Please enter a valid email address.';
-        errorMsg.style.display = 'block';
+    (async function() {
+      // If already logged in via Supabase session, go to menu
+      var sessionRes = await SupabaseClient.auth.getSession();
+      if (sessionRes.data.session) {
+        window.location.href = 'menu.html';
         return;
       }
 
-      errorMsg.style.display = 'none';
-      Auth.registerEmail(email);
-      window.location.href = 'menu.html';
-    });
+      var isLoginMode = true;
+      var loginTab = document.getElementById('loginTab');
+      var registerTab = document.getElementById('registerTab');
+      var authBtn = document.getElementById('authBtn');
+      var passwordInput = document.getElementById('passwordInput');
+      var errorMsg = document.getElementById('errorMsg');
+      var successMsg = document.getElementById('successMsg');
+      var forgotLink = document.getElementById('forgotLink');
+
+      function showError(msg) {
+        errorMsg.textContent = msg;
+        errorMsg.style.display = 'block';
+        successMsg.style.display = 'none';
+      }
+
+      function showSuccess(msg) {
+        successMsg.textContent = msg;
+        successMsg.style.display = 'block';
+        errorMsg.style.display = 'none';
+      }
+
+      function clearMessages() {
+        errorMsg.style.display = 'none';
+        successMsg.style.display = 'none';
+      }
+
+      function switchToLogin() {
+        isLoginMode = true;
+        loginTab.classList.add('active');
+        registerTab.classList.remove('active');
+        authBtn.textContent = 'Login';
+        passwordInput.autocomplete = 'current-password';
+        clearMessages();
+      }
+
+      function switchToRegister() {
+        isLoginMode = false;
+        registerTab.classList.add('active');
+        loginTab.classList.remove('active');
+        authBtn.textContent = 'Create Account';
+        passwordInput.autocomplete = 'new-password';
+        clearMessages();
+      }
+
+      loginTab.addEventListener('click', switchToLogin);
+      registerTab.addEventListener('click', switchToRegister);
+
+      // Forgot password
+      forgotLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        var email = document.getElementById('emailInput').value.trim();
+        if (!email || !Auth.isValidEmail(email)) {
+          showError('Please enter your email address first, then click "Forgot password?"');
+          return;
+        }
+        clearMessages();
+        authBtn.disabled = true;
+        authBtn.textContent = 'Sending...';
+
+        Auth.resetPassword(email).then(function(result) {
+          authBtn.disabled = false;
+          authBtn.textContent = isLoginMode ? 'Login' : 'Create Account';
+          if (result.success) {
+            showSuccess('Password reset email sent! Check your inbox.');
+          } else {
+            showError(result.error || 'Could not send reset email. Please try again.');
+          }
+        });
+      });
+
+      // Form submit
+      document.getElementById('authForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        clearMessages();
+
+        var email = document.getElementById('emailInput').value.trim();
+        var password = passwordInput.value;
+
+        if (!Auth.isValidEmail(email)) {
+          showError('Please enter a valid email address.');
+          return;
+        }
+
+        if (password.length < 6) {
+          showError('Password must be at least 6 characters.');
+          return;
+        }
+
+        authBtn.disabled = true;
+        authBtn.textContent = isLoginMode ? 'Logging in...' : 'Creating account...';
+
+        var action = isLoginMode ? Auth.signIn(email, password) : Auth.signUp(email, password);
+
+        action.then(function(result) {
+          if (!result.success) {
+            authBtn.disabled = false;
+            authBtn.textContent = isLoginMode ? 'Login' : 'Create Account';
+            showError(result.error);
+            return;
+          }
+
+          if (result.needsConfirmation) {
+            authBtn.disabled = false;
+            authBtn.textContent = 'Create Account';
+            showSuccess('Account created! Check your email inbox and click the confirmation link to activate your account. Then come back here to log in.');
+            switchToLogin();
+            return;
+          }
+
+          // Success — redirect to menu
+          window.location.href = 'menu.html';
+        }).catch(function(err) {
+          authBtn.disabled = false;
+          authBtn.textContent = isLoginMode ? 'Login' : 'Create Account';
+          showError('Something went wrong. Please try again.');
+        });
+      });
+    })();
   </script>
 </body>
 </html>

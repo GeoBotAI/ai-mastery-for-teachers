@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Mastery for Teachers - Home</title>
-  <link rel="stylesheet" href="css/styles.css?v=4">
+  <link rel="stylesheet" href="css/styles.css?v=5">
 </head>
 <body class="inner-page">
   <div class="menu-container fade-in">
@@ -62,11 +62,14 @@
     </div>
   </div>
 
-  <script src="js/storage.js?v=4"></script>
-  <script src="js/auth.js?v=4"></script>
-  <script src="js/app.js?v=4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="js/supabase-client.js?v=5"></script>
+  <script src="js/storage.js?v=5"></script>
+  <script src="js/supabase-sync.js?v=5"></script>
+  <script src="js/auth.js?v=5"></script>
+  <script src="js/app.js?v=5"></script>
   <script>
-  (function() {
+  document.addEventListener('app:ready', function() {
     var quizPassed = StorageManager.isQuizPassed();
     var quizResult = StorageManager.getQuizResult();
     var statusEl = document.getElementById('stage1Status');
@@ -126,7 +129,7 @@
         // If all complete, don't show banner — they're done!
       }
     }
-  })();
+  });
   </script>
 </body>
 </html>

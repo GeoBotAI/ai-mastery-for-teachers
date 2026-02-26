@@ -4,17 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Mastery for Teachers</title>
-  <link rel="stylesheet" href="css/styles.css?v=4">
+  <link rel="stylesheet" href="css/styles.css?v=5">
 </head>
 <body class="welcome-page">
   <div class="welcome-container">
     <button class="enter-button" onclick="window.location.href='login.html'">Enter</button>
   </div>
-  <script src="js/storage.js?v=4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="js/supabase-client.js?v=5"></script>
+  <script src="js/storage.js?v=5"></script>
   <script>
-    if (StorageManager.isLoggedIn()) {
-      window.location.href = 'menu.html';
-    }
+    (async function() {
+      var sessionRes = await SupabaseClient.auth.getSession();
+      if (sessionRes.data.session) {
+        window.location.href = 'menu.html';
+      }
+    })();
   </script>
 </body>
 </html>

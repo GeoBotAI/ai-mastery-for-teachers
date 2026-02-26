@@ -11,6 +11,9 @@ Safety Course Certificate.jpg
 2.jpg
 nul
 
+# Supabase setup (run manually in dashboard)
+supabase-setup.sql
+
 # Claude config
 .claude/
 

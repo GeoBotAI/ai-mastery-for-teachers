@@ -32,6 +32,9 @@ var App = (function() {
       return '<a href="' + link.href + '" class="' + activeClass + '">' + link.label + '</a>';
     }).join('');
 
+    // Add logout button
+    linksHtml += '<a href="#" class="nav-logout" id="navLogout">Logout</a>';
+
     nav.innerHTML =
       '<a href="menu.html" class="nav-brand">AI Mastery</a>' +
       '<div class="nav-links">' + linksHtml + '</div>' +
@@ -53,30 +56,27 @@ var App = (function() {
         navLinks.classList.remove('open');
       });
     }
+
+    // Logout handler
+    var logoutBtn = document.getElementById('navLogout');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        Auth.logout();
+      });
+    }
   }
 
-  function injectLogo() {
-    var page = getCurrentPage();
-    if (page === 'index') return;
-
-    var logo = document.createElement('img');
-    logo.src = 'images/logo.png';
-    logo.alt = 'AI Mastery for Teachers';
-    logo.className = 'fixed-logo';
-    logo.onerror = function() { this.style.display = 'none'; };
-    document.body.appendChild(logo);
-  }
-
-  function init() {
-    Auth.guardPage();
+  async function init() {
+    await Auth.guardPage();
     injectNavBar();
-    // Logo is embedded in the page-bg.jpg background image (bottom-right)
-    // No need for separate logo injection
+    // Signal that auth + hydration is complete
+    document.dispatchEvent(new Event('app:ready'));
   }
 
   // Auto-init when DOM is ready
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', function() { init(); });
   } else {
     init();
   }

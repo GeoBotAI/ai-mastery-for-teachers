@@ -1,12 +1,8 @@
 /* ============================================
-   Gallery - Shared Teacher Showcase with Firebase
+   Gallery - Shared Teacher Showcase with Supabase
    ============================================ */
 
 var Gallery = (function() {
-
-  // Firebase configuration - UPDATE THESE with your Firebase project details
-  var FIREBASE_DB_URL = null; // e.g., 'https://your-project-default-rtdb.firebaseio.com'
-  var GALLERY_PATH = '/gallery.json';
 
   var lightboxEl = null;
 
@@ -45,50 +41,43 @@ var Gallery = (function() {
     return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
   }
 
-  // --- Firebase operations ---
+  // --- Supabase operations ---
   function fetchGalleryItems(callback) {
-    if (FIREBASE_DB_URL) {
-      fetch(FIREBASE_DB_URL + GALLERY_PATH)
-        .then(function(res) { return res.json(); })
-        .then(function(data) {
-          if (!data) { callback([]); return; }
-          // Convert Firebase object to array
-          var items = [];
-          for (var key in data) {
-            var item = data[key];
-            item._key = key;
-            items.push(item);
-          }
-          // Sort newest first
-          items.sort(function(a, b) {
-            return new Date(b.createdAt) - new Date(a.createdAt);
-          });
+    SupabaseSync.fetchGalleryFromSupabase()
+      .then(function(items) {
+        if (items && items.length > 0) {
           callback(items);
-        })
-        .catch(function() {
+        } else {
           // Fallback to localStorage
           callback(StorageManager.getGallery());
-        });
-    } else {
-      callback(StorageManager.getGallery());
-    }
+        }
+      })
+      .catch(function() {
+        // Fallback to localStorage
+        callback(StorageManager.getGallery());
+      });
   }
 
   function saveGalleryItem(item, callback) {
-    // Always save locally
-    StorageManager.addGalleryItem(item);
-
-    if (FIREBASE_DB_URL) {
-      fetch(FIREBASE_DB_URL + GALLERY_PATH, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(item)
-      })
-        .then(function() { callback(true); })
-        .catch(function() { callback(true); }); // Still succeed via localStorage
-    } else {
-      callback(true);
-    }
+    (async function() {
+      try {
+        var imageUrl = null;
+        if (item.imageDataUrl) {
+          imageUrl = await SupabaseSync.uploadGalleryImage(item.imageDataUrl);
+        }
+        var saved = await SupabaseSync.pushGalleryItem(item, imageUrl);
+        if (!saved) {
+          // Fallback to localStorage
+          StorageManager.addGalleryItem(item);
+        }
+        callback(true);
+      } catch (err) {
+        console.error('Gallery save error:', err);
+        // Fallback to localStorage
+        StorageManager.addGalleryItem(item);
+        callback(true);
+      }
+    })();
   }
 
   // --- UI ---
@@ -201,6 +190,9 @@ var Gallery = (function() {
           }
           html += '</div>';
         }
+        if (item.email) {
+          html += '<span class="gallery-card__author">' + escapeHtml(item.email) + '</span>';
+        }
         if (item.text) {
           html += '<p class="gallery-card__text">' + escapeHtml(item.text) + '</p>';
         }
@@ -265,7 +257,6 @@ var Gallery = (function() {
 
   return {
     init: init,
-    fetchGalleryItems: fetchGalleryItems,
-    FIREBASE_DB_URL: FIREBASE_DB_URL
+    fetchGalleryItems: fetchGalleryItems
   };
 })();

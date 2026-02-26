@@ -158,6 +158,17 @@ var StorageManager = (function() {
     }
 
     set(KEYS.PROGRESS, progress);
+
+    // Sync to Supabase (fire and forget)
+    if (typeof SupabaseSync !== 'undefined') {
+      SupabaseSync.pushActivityComplete(
+        challengeId,
+        activityIndex,
+        completed,
+        completed ? new Date().toISOString() : null
+      );
+    }
+
     return { allDone: allDone, progress: progress };
   }
 
@@ -210,6 +221,11 @@ var StorageManager = (function() {
 
   function setQuizResult(result) {
     set(KEYS.QUIZ, result);
+
+    // Sync to Supabase (fire and forget)
+    if (typeof SupabaseSync !== 'undefined') {
+      SupabaseSync.pushQuizResult(result);
+    }
   }
 
   function isQuizPassed() {
@@ -240,6 +256,7 @@ var StorageManager = (function() {
     isLoggedIn: isLoggedIn,
     getEmails: getEmails,
     addEmail: addEmail,
+    initProgress: initProgress,
     getProgress: getProgress,
     setActivityComplete: setActivityComplete,
     isChallengeComplete: isChallengeComplete,
